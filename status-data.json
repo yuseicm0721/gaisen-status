@@ -1,7 +1,937 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T14:36:33.875Z",
+  "generatedAt": "2026-11-15T14:38:10.051Z",
   "intervalMinutes": 5,
+  "service": {
+    "slug": "gaisen-now",
+    "name": "ガイセンNOW",
+    "description": "街宣情報・ニュースの閲覧",
+    "status": "up",
+    "checkedAt": "2026-11-15T14:38:06.569Z",
+    "responseTime": 1713,
+    "startedAt": "2026-11-15T13:43:25.242Z",
+    "historyStartedAt": "2026-08-18T00:00:00.000Z",
+    "periods": [
+      {
+        "days": 1,
+        "uptime": 100,
+        "observedSeconds": 86396
+      },
+      {
+        "days": 7,
+        "uptime": 99.949,
+        "observedSeconds": 604796
+      },
+      {
+        "days": 30,
+        "uptime": 98.468,
+        "observedSeconds": 2591996
+      }
+    ],
+    "days": [
+      {
+        "date": "2026-08-18",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 53695,
+        "observedSeconds": 54000,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-19",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-20",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-21",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-22",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-23",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-24",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-25",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-26",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86095,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-27",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-28",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-29",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86096,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-01",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-02",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-03",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-04",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86095,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-05",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86096,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-06",
+        "checks": null,
+        "failed": 4,
+        "upSeconds": 83655,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-07",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-08",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-09",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-10",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-11",
+        "checks": null,
+        "failed": 2,
+        "upSeconds": 85789,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-12",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-13",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-14",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-15",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-16",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86096,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-17",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-18",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-19",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-20",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-21",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-22",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-23",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-24",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-25",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-26",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-27",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-28",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86094,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-29",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-09-30",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-01",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-02",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86094,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-03",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-04",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-05",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-06",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-07",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-08",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-09",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-10",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-11",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-12",
+        "checks": null,
+        "failed": 2,
+        "upSeconds": 85791,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-13",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-14",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-15",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-16",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-17",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-18",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-19",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-20",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86097,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-21",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 83865,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-22",
+        "checks": null,
+        "failed": 2,
+        "upSeconds": 51044,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-23",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-24",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 85790,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-25",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-26",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-27",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-28",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-29",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-30",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-10-31",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-01",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-02",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-03",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-04",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-05",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86095,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-06",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-07",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-08",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86096,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-09",
+        "checks": null,
+        "failed": 1,
+        "upSeconds": 86094,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-10",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-11",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-12",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-13",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-14",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
+        "sources": [
+          "uptimerobot"
+        ]
+      },
+      {
+        "date": "2026-11-15",
+        "checks": null,
+        "failed": 0,
+        "upSeconds": 85085.75299999998,
+        "observedSeconds": 85085.75299999998,
+        "sources": [
+          "uptimerobot",
+          "upptime"
+        ]
+      }
+    ]
+  },
   "services": [
     {
       "slug": "website",
@@ -10,25 +940,25 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1723,
-      "checkedAt": "2026-11-15T14:36:31.943Z",
+      "responseTime": 1713,
+      "checkedAt": "2026-11-15T14:38:06.569Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
           "uptime": 100,
-          "observedSeconds": 86398
+          "observedSeconds": 86397
         },
         {
           "days": 7,
           "uptime": 99.949,
-          "observedSeconds": 604798
+          "observedSeconds": 604797
         },
         {
           "days": 30,
           "uptime": 98.468,
-          "observedSeconds": 2591998
+          "observedSeconds": 2591997
         }
       ],
       "days": [
@@ -924,10 +1854,10 @@
         },
         {
           "date": "2026-11-15",
-          "checks": 8,
+          "checks": 9,
           "failed": 0,
-          "upSeconds": 84991.943,
-          "observedSeconds": 84991.943,
+          "upSeconds": 85086.569,
+          "observedSeconds": 85086.569,
           "sources": [
             "upptime",
             "uptimerobot"
@@ -942,34 +1872,34 @@
       "url": "https://gaisen.1mr.jp/news",
       "status": "up",
       "code": 200,
-      "responseTime": 579,
-      "checkedAt": "2026-11-15T14:36:32.582Z",
+      "responseTime": 595,
+      "checkedAt": "2026-11-15T14:38:07.225Z",
       "startedAt": "2026-11-15T13:43:25.242Z",
       "historyStartedAt": "2026-11-15T13:43:25.242Z",
       "periods": [
         {
           "days": 1,
           "uptime": 100,
-          "observedSeconds": 3187
+          "observedSeconds": 3281
         },
         {
           "days": 7,
           "uptime": 100,
-          "observedSeconds": 3187
+          "observedSeconds": 3281
         },
         {
           "days": 30,
           "uptime": 100,
-          "observedSeconds": 3187
+          "observedSeconds": 3281
         }
       ],
       "days": [
         {
           "date": "2026-11-15",
-          "checks": 8,
+          "checks": 9,
           "failed": 0,
-          "upSeconds": 3186.7890000000007,
-          "observedSeconds": 3186.7890000000007,
+          "upSeconds": 3281.4320000000007,
+          "observedSeconds": 3281.4320000000007,
           "sources": [
             "upptime"
           ]
