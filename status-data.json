@@ -1,31 +1,31 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T14:38:10.051Z",
+  "generatedAt": "2026-11-15T14:44:19.786Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
     "name": "ガイセンNOW",
     "description": "街宣情報・ニュースの閲覧",
     "status": "up",
-    "checkedAt": "2026-11-15T14:38:06.569Z",
-    "responseTime": 1713,
+    "checkedAt": "2026-11-15T14:44:17.514Z",
+    "responseTime": 2014,
     "startedAt": "2026-11-15T13:43:25.242Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
       {
         "days": 1,
         "uptime": 100,
-        "observedSeconds": 86396
+        "observedSeconds": 86397
       },
       {
         "days": 7,
         "uptime": 99.949,
-        "observedSeconds": 604796
+        "observedSeconds": 604797
       },
       {
         "days": 30,
         "uptime": 98.468,
-        "observedSeconds": 2591996
+        "observedSeconds": 2591997
       }
     ],
     "days": [
@@ -923,8 +923,8 @@
         "date": "2026-11-15",
         "checks": null,
         "failed": 0,
-        "upSeconds": 85085.75299999998,
-        "observedSeconds": 85085.75299999998,
+        "upSeconds": 85456.69799999999,
+        "observedSeconds": 85456.69799999999,
         "sources": [
           "uptimerobot",
           "upptime"
@@ -940,25 +940,25 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1713,
-      "checkedAt": "2026-11-15T14:38:06.569Z",
+      "responseTime": 2014,
+      "checkedAt": "2026-11-15T14:44:17.514Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
           "uptime": 100,
-          "observedSeconds": 86397
+          "observedSeconds": 86398
         },
         {
           "days": 7,
           "uptime": 99.949,
-          "observedSeconds": 604797
+          "observedSeconds": 604798
         },
         {
           "days": 30,
           "uptime": 98.468,
-          "observedSeconds": 2591997
+          "observedSeconds": 2591998
         }
       ],
       "days": [
@@ -1854,10 +1854,10 @@
         },
         {
           "date": "2026-11-15",
-          "checks": 9,
+          "checks": 10,
           "failed": 0,
-          "upSeconds": 85086.569,
-          "observedSeconds": 85086.569,
+          "upSeconds": 85457.51400000001,
+          "observedSeconds": 85457.51400000001,
           "sources": [
             "upptime",
             "uptimerobot"
@@ -1872,34 +1872,34 @@
       "url": "https://gaisen.1mr.jp/news",
       "status": "up",
       "code": 200,
-      "responseTime": 595,
-      "checkedAt": "2026-11-15T14:38:07.225Z",
+      "responseTime": 616,
+      "checkedAt": "2026-11-15T14:44:18.190Z",
       "startedAt": "2026-11-15T13:43:25.242Z",
       "historyStartedAt": "2026-11-15T13:43:25.242Z",
       "periods": [
         {
           "days": 1,
           "uptime": 100,
-          "observedSeconds": 3281
+          "observedSeconds": 3652
         },
         {
           "days": 7,
           "uptime": 100,
-          "observedSeconds": 3281
+          "observedSeconds": 3652
         },
         {
           "days": 30,
           "uptime": 100,
-          "observedSeconds": 3281
+          "observedSeconds": 3652
         }
       ],
       "days": [
         {
           "date": "2026-11-15",
-          "checks": 9,
+          "checks": 10,
           "failed": 0,
-          "upSeconds": 3281.4320000000007,
-          "observedSeconds": 3281.4320000000007,
+          "upSeconds": 3652.397000000001,
+          "observedSeconds": 3652.397000000001,
           "sources": [
             "upptime"
           ]
