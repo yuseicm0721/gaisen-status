@@ -1,3 +1,4 @@
+import {resultDescription} from './status-errors.js';
 const $ = selector => document.querySelector(selector);
 const STALE_AFTER = 20 * 60000;
 const dateTime = new Intl.DateTimeFormat('ja-JP', {timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'});
@@ -21,14 +22,12 @@ function statusState(services) {
   if (services.every(service => service.status === 'down')) return 'down';
   return 'degraded';
 }
-function publicService(data) {
-  return data.service || {...data.services.find(s => s.slug === 'website'), name: 'ガイセンNOW', description: '街宣情報・ニュースの閲覧'};
-}
+function publicService(data) { return data.service || data.services[0]; }
 function renderOverall(services) {
   const state = statusState(services);
   $('#current-status').dataset.state = state;
-  $('#overall-title').textContent = {up: '正常に稼働しています', down: '障害を検知しています', degraded: '一部で障害を検知しています', unknown: '最新の状態を確認できていません'}[state];
-  $('#overall-description').textContent = {up: '監視しているページへの接続を確認できています。', down: 'ページにアクセスしにくい状態です。復旧状況はこちらでお知らせします。', degraded: '一部のページにアクセスしにくい状態です。', unknown: '監視結果の更新が遅れています。最終確認の日時をご確認ください。'}[state];
+  $('#overall-title').textContent = {up: '正常に稼働しています', down: '障害を検知しています', degraded: '応答が遅れています', unknown: '最新の状態を確認できていません'}[state];
+  $('#overall-description').textContent = {up: 'ガイセンNOWへの接続を確認できています。', down: 'ページにアクセスしにくい状態です。復旧状況はこちらでお知らせします。', degraded: '応答が遅い状態を検知しています。', unknown: '監視結果の更新が遅れています。最終確認の日時をご確認ください。'}[state];
   const oldest = Math.min(...services.map(s => Date.parse(s.checkedAt)));
   $('#checked-at').textContent = '最終確認：' + (Number.isFinite(oldest) ? format(new Date(oldest).toISOString()) + '（日本時間）' : '確認できていません');
 }
@@ -37,13 +36,14 @@ function renderServices(data) {
     const card = element('article', 'service-card');
     const top = element('div', 'service-top'), copy = element('div');
     copy.append(element('h3', '', service.name), element('p', 'service-description', service.description));
-    const state = statusState(data.services);
-    top.append(copy, element('span', 'status-badge ' + state, {up: '正常', down: '障害を検知', degraded: '一部障害', unknown: '最新状況は未確認'}[state]));
+    const state = statusState([service]);
+    top.append(copy, element('span', 'status-badge ' + state, {up: '正常', down: '障害を検知', degraded: '応答遅延', unknown: '最新状況は未確認'}[state]));
     const meta = element('div', 'service-meta');
-    const response = element('span', '', '応答時間（最長） ');
+    const response = element('span', '', '応答時間 ');
     response.append(element('b', '', state === 'up' && Number.isFinite(service.responseTime) ? Math.round(service.responseTime).toLocaleString('ja-JP') + ' ms' : '—'));
     meta.append(response, element('span', '', '最終確認 ' + (Number.isFinite(Date.parse(service.checkedAt)) ? clock.format(new Date(service.checkedAt)) : '—')));
     card.append(top, meta);
+    if (fresh(service)) card.append(element('p', 'service-result', '最終確認の応答：' + resultDescription(service.code, service.status)));
     return card;
   });
   $('#services').replaceChildren(...nodes);
@@ -66,7 +66,7 @@ function renderHistory(services) {
       const downtime = day ? day.observedSeconds - day.upSeconds : 0;
       const state = !day ? 'unknown' : downtime > 0 && (day.partialSeconds || 0) >= downtime - 0.001 ? 'degraded' : day.failed > 0 || downtime > 0 ? 'down' : 'up';
       const historical = day?.sources?.includes('uptimerobot');
-      const stateText = {up:'計測範囲で正常', down:'障害を検知', degraded:'一部で障害を検知'}[state];
+      const stateText = {up:'計測範囲で正常', down:'障害を検知', degraded:'応答遅延を検知'}[state];
       const detail = !day ? '計測データなし' : day.observedSeconds > 0
         ? stateText + '。稼働率 ' + (day.upSeconds / day.observedSeconds * 100).toFixed(3) + '%、障害時間 ' + Math.round(downtime / 60) + '分' + (historical ? '（UptimeRobot' + (day.sources.includes('upptime') ? '・新しい監視' : '') + 'の記録）' : '')
         : stateText + '。稼働率は集計中です';
@@ -123,6 +123,11 @@ function renderIncidents(data) {
     top.append(element('h3', '', title), element('span', 'status-badge ' + (open ? 'degraded' : 'up'), maintenance ? (open ? 'お知らせ' : '終了') : (open ? '障害を検知' : '復旧済み')));
     const times = element('p', '', '発生：' + format(item.startedAt) + (item.resolvedAt ? ' ／ 復旧：' + format(item.resolvedAt) : ''));
     card.append(top, times);
+    if (!maintenance) {
+      const codes = item.codes?.length ? item.codes : [item.code];
+      const details = [...new Set(codes.map(code => resultDescription(code, item.status)))];
+      card.append(element('p', 'incident-error', '検知時の応答：' + details.join(' ／ ')));
+    }
     if (item.source === 'uptimerobot') card.append(element('p', 'incident-source', 'UptimeRobotの過去の記録'));
     else if (/^https:\/\/github\.com\/yuseicm0721\/gaisen-status\/issues\/\d+$/.test(item.url)) {
       const link = element('a', '', '記録を見る ↗');
@@ -139,7 +144,7 @@ function renderIncidents(data) {
   root.replaceChildren(...notices, ...cards);
 }
 function render(data) {
-  renderOverall(data.services); renderServices(data); renderHistory([publicService(data)]); renderIncidents(data);
+  renderOverall([publicService(data)]); renderServices(data); renderHistory([publicService(data)]); renderIncidents(data);
   const main = publicService(data);
   for (const period of main.periods) {
     const strong = $('#uptime-' + period.days);
@@ -150,7 +155,7 @@ function render(data) {
     ? '履歴の開始：' + format(main.historyStartedAt) + '。UptimeRobotの過去の記録と、新しい監視結果を集計しています。'
     : '監視開始：' + format(main.startedAt) + '。開始以降、計測できた時間をもとに集計しています。';
   $('#history-source').hidden = !data.historicalImport;
-  if (data.historicalImport) $('#history-source').textContent = format(data.historicalImport.coverage.end) + '以前はUptimeRobotの記録です。以降はトップページとニュースをまとめた監視結果です。';
+  if (data.historicalImport) $('#history-source').textContent = format(data.historicalImport.coverage.end) + '以前はUptimeRobotの記録です。以降はガイセンNOWの監視結果です。';
 }
 async function refresh() {
   if (refreshing) return;
@@ -159,7 +164,7 @@ async function refresh() {
     const response = await fetch('/status/data.json', {cache: 'no-store', signal: AbortSignal.timeout(15000)});
     if (!response.ok) throw new Error('Status data unavailable');
     const data = await response.json();
-    if (data.version !== 1 || !Array.isArray(data.services) || !data.services.length || !data.services.some(s => s.slug === 'website') || data.services.some(s => !['up','down','degraded'].includes(s.status) || !Array.isArray(s.days) || !Array.isArray(s.periods)) || !Array.isArray(data.incidents)) throw new Error('Invalid status data');
+    if (data.version !== 1 || !Array.isArray(data.services) || !data.services.length || data.services.some(s => !['up','down','degraded'].includes(s.status) || !Array.isArray(s.days) || !Array.isArray(s.periods)) || !Array.isArray(data.incidents)) throw new Error('Invalid status data');
     current = data; render(data);
     $('#refresh-notice').hidden = true;
   } catch (error) {

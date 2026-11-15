@@ -7,7 +7,7 @@ export function resourceFor(pathname) {
   const path = pathname.slice('/status/'.length);
   if (!pathname.startsWith('/status/')) return null;
   if (/^(base|status)\.css$/.test(path)) return {path, type: 'text/css; charset=utf-8', ttl: 3600};
-  if (/^(menu|status)\.js$/.test(path)) return {path, type: 'text/javascript; charset=utf-8', ttl: 3600};
+  if (/^(menu|status|status-errors)\.js$/.test(path)) return {path, type: 'text/javascript; charset=utf-8', ttl: 3600};
   if (path === 'assets/brand-logo.svg') return {path, type: 'image/svg+xml', ttl: 86400};
   if (path === 'assets/fonts/line-seed-jp.css') return {path, type: 'text/css; charset=utf-8', ttl: 86400};
   if (/^assets\/fonts\/line-seed-jp\/[a-f0-9]+\.woff2$/.test(path)) return {path, type: 'font/woff2', ttl: 604800};
@@ -32,7 +32,7 @@ export default {
     const url = new URL(request.url), resource = resourceFor(url.pathname);
     if (!resource) return new Response('Not found', {status: 404});
     const target = resource.data ? DATA_ORIGIN : STATIC_ORIGIN + resource.path;
-    const cacheKey = new Request('https://gaisen.1mr.jp/status/__cache/20261115-4/' + (resource.data ? 'data.json' : resource.path));
+    const cacheKey = new Request('https://gaisen.1mr.jp/status/__cache/20261116-1/' + (resource.data ? 'data.json' : resource.path));
     const cache = caches.default;
     const cached = await cache.match(cacheKey);
     const age = cached ? Date.now() - Number(cached.headers.get('X-Status-Cached-At')) : Infinity;

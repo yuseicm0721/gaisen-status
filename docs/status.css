@@ -5,3 +5,5 @@
 .history-source{font-size:11px;line-height:1.9;color:#6c8279;margin:12px 0}.incident .incident-source{font-size:10px;color:#7a8e84;margin:9px 0 0}.load-more-incidents{display:block;margin:22px auto 0;border:1px solid #c7ddd1;border-radius:25px;background:#fff;color:var(--primary);font-size:12px;font-weight:650;padding:11px 22px}.load-more-incidents:hover{background:#eef7f1}@media(max-width:700px){.history-source{font-size:10px}.load-more-incidents{font-size:11px;padding:11px 17px}}
 
 .day-bar.degraded,.legend-dot.degraded{background:#d3b564}
+
+.service-card .service-result{font-size:11px;color:var(--text-sub);margin:12px 0 0}.incident .incident-error{display:inline-block;font-size:11px;color:#43665c;background:#f0f6f2;border-radius:6px;padding:5px 9px;margin:3px 0 10px;overflow-wrap:anywhere}
