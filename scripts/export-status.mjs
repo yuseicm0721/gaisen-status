@@ -1,5 +1,6 @@
 import {readFile, writeFile, mkdir} from 'node:fs/promises';
 import {monitors, summarize, summarizeCombined, combinedStatus} from './status-model.mjs';
+import {groupPublicIncidents} from './incident-groups.mjs';
 const now = Date.now();
 await mkdir('history', {recursive: true});
 let ledger = {};
@@ -34,7 +35,7 @@ try {
   }));
 } catch (error) { incidentsAvailable = false; console.warn(error.message); }
 if (archive) incidents.push(...archive.incidents);
-incidents.sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt));
+incidents = groupPublicIncidents(incidents);
 await writeFile('history/checks.json', JSON.stringify(ledger) + '\n');
 const historicalImport = archive ? {source: archive.source, coverage: archive.coverage, incidentCount: archive.incidents.length, importedAt: archive.fetchedAt} : null;
 const start = Math.max(...services.map(s => Date.parse(s.startedAt)));
