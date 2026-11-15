@@ -4,19 +4,19 @@
     "url": "https://gaisen.1mr.jp/",
     "icon": "https://icons.duckduckgo.com/ip3/gaisen.1mr.jp.ico",
     "slug": "website",
-    "status": "down",
-    "uptime": "99.91%",
-    "uptimeDay": "99.91%",
-    "uptimeWeek": "99.91%",
-    "uptimeMonth": "99.91%",
-    "uptimeYear": "99.91%",
-    "time": 1665,
-    "timeDay": 1665,
-    "timeWeek": 1665,
-    "timeMonth": 1665,
-    "timeYear": 1665,
+    "status": "up",
+    "uptime": "97.72%",
+    "uptimeDay": "97.72%",
+    "uptimeWeek": "97.72%",
+    "uptimeMonth": "97.72%",
+    "uptimeYear": "97.72%",
+    "time": 1669,
+    "timeDay": 1669,
+    "timeWeek": 1669,
+    "timeMonth": 1669,
+    "timeYear": 1669,
     "dailyMinutesDown": {
-      "2026-11-15": 0
+      "2026-11-15": 8
     }
   },
   {
@@ -24,17 +24,19 @@
     "url": "https://gaisen.1mr.jp/news",
     "icon": "https://icons.duckduckgo.com/ip3/gaisen.1mr.jp.ico",
     "slug": "news",
-    "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 417,
-    "timeDay": 417,
-    "timeWeek": 417,
-    "timeMonth": 417,
-    "timeYear": 417,
-    "dailyMinutesDown": {}
+    "status": "up",
+    "uptime": "97.78%",
+    "uptimeDay": "97.78%",
+    "uptimeWeek": "97.78%",
+    "uptimeMonth": "97.78%",
+    "uptimeYear": "97.78%",
+    "time": 420,
+    "timeDay": 420,
+    "timeWeek": 420,
+    "timeMonth": 420,
+    "timeYear": 420,
+    "dailyMinutesDown": {
+      "2026-11-15": 8
+    }
   }
 ]
