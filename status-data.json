@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T14:28:14.862Z",
+  "generatedAt": "2026-11-15T14:36:33.875Z",
   "intervalMinutes": 5,
   "services": [
     {
@@ -10,25 +10,25 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1604,
-      "checkedAt": "2026-11-15T14:28:11.229Z",
+      "responseTime": 1723,
+      "checkedAt": "2026-11-15T14:36:31.943Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
           "uptime": 100,
-          "observedSeconds": 86396
+          "observedSeconds": 86398
         },
         {
           "days": 7,
           "uptime": 99.949,
-          "observedSeconds": 604796
+          "observedSeconds": 604798
         },
         {
           "days": 30,
           "uptime": 98.468,
-          "observedSeconds": 2591996
+          "observedSeconds": 2591998
         }
       ],
       "days": [
@@ -924,10 +924,10 @@
         },
         {
           "date": "2026-11-15",
-          "checks": 7,
+          "checks": 8,
           "failed": 0,
-          "upSeconds": 84491.22899999999,
-          "observedSeconds": 84491.22899999999,
+          "upSeconds": 84991.943,
+          "observedSeconds": 84991.943,
           "sources": [
             "upptime",
             "uptimerobot"
@@ -942,34 +942,34 @@
       "url": "https://gaisen.1mr.jp/news",
       "status": "up",
       "code": 200,
-      "responseTime": 475,
-      "checkedAt": "2026-11-15T14:28:11.760Z",
+      "responseTime": 579,
+      "checkedAt": "2026-11-15T14:36:32.582Z",
       "startedAt": "2026-11-15T13:43:25.242Z",
       "historyStartedAt": "2026-11-15T13:43:25.242Z",
       "periods": [
         {
           "days": 1,
           "uptime": 100,
-          "observedSeconds": 2686
+          "observedSeconds": 3187
         },
         {
           "days": 7,
           "uptime": 100,
-          "observedSeconds": 2686
+          "observedSeconds": 3187
         },
         {
           "days": 30,
           "uptime": 100,
-          "observedSeconds": 2686
+          "observedSeconds": 3187
         }
       ],
       "days": [
         {
           "date": "2026-11-15",
-          "checks": 7,
+          "checks": 8,
           "failed": 0,
-          "upSeconds": 2685.9670000000006,
-          "observedSeconds": 2685.9670000000006,
+          "upSeconds": 3186.7890000000007,
+          "observedSeconds": 3186.7890000000007,
           "sources": [
             "upptime"
           ]
