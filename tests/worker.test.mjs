@@ -14,7 +14,11 @@ test('worker serves without contacting the website origin', async () => {
   let target;
   const original = globalThis.fetch;
   globalThis.caches = {default: {match: async () => undefined, put: async () => {}}};
-  globalThis.fetch = async url => {target = url; return new Response('<html>status</html>');};
+  globalThis.fetch = async (url, options) => {
+    target = url;
+    assert.equal(options.redirect, 'manual');
+    return new Response('<html>status</html>');
+  };
   try {
     const response = await worker.fetch(new Request('https://gaisen.1mr.jp/status'), {}, {waitUntil: () => {}});
     assert.equal(response.status, 200);

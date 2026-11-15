@@ -40,7 +40,7 @@ export default {
     if (cached && age < resource.ttl * 1000) response = outgoing(cached, resource.type);
     else {
       try {
-        const upstream = await fetch(target, {headers: {'User-Agent': 'GaisenNOW-Status/1.0'}, redirect: 'error', signal: AbortSignal.timeout(10000), cf: {cacheTtl: 0}});
+        const upstream = await fetch(target, {headers: {'User-Agent': 'GaisenNOW-Status/1.0'}, redirect: 'manual', signal: AbortSignal.timeout(10000), cf: {cacheTtl: 0}});
         if (!upstream.ok) throw new Error('Upstream unavailable');
         const body = await upstream.arrayBuffer();
         if (resource.data) {
