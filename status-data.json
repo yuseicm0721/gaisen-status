@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T23:16:43.546Z",
+  "generatedAt": "2026-11-15T23:28:41.152Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
     "name": "ガイセンNOW",
     "description": "街宣情報・ニュースの閲覧",
     "status": "up",
-    "checkedAt": "2026-11-15T23:16:41.576Z",
-    "responseTime": 1889,
+    "checkedAt": "2026-11-15T23:28:38.959Z",
+    "responseTime": 1602,
     "startedAt": "2026-11-15T13:43:25.242Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
@@ -934,8 +934,8 @@
         "date": "2026-11-16",
         "checks": null,
         "failed": 3,
-        "upSeconds": 29312.422000000002,
-        "observedSeconds": 29801.575999999997,
+        "upSeconds": 30029.805,
+        "observedSeconds": 30518.958999999995,
         "sources": [
           "upptime"
         ],
@@ -951,8 +951,8 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1889,
-      "checkedAt": "2026-11-15T23:16:41.576Z",
+      "responseTime": 1602,
+      "checkedAt": "2026-11-15T23:28:38.959Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
@@ -1876,10 +1876,10 @@
         },
         {
           "date": "2026-11-16",
-          "checks": 58,
+          "checks": 59,
           "failed": 1,
-          "upSeconds": 29315.509,
-          "observedSeconds": 29801.575999999997,
+          "upSeconds": 30032.892,
+          "observedSeconds": 30518.959,
           "sources": [
             "upptime"
           ]
@@ -1893,25 +1893,25 @@
       "url": "https://gaisen.1mr.jp/news",
       "status": "up",
       "code": 200,
-      "responseTime": 563,
-      "checkedAt": "2026-11-15T23:16:42.249Z",
+      "responseTime": 636,
+      "checkedAt": "2026-11-15T23:28:39.644Z",
       "startedAt": "2026-11-15T13:43:25.242Z",
       "historyStartedAt": "2026-11-15T13:43:25.242Z",
       "periods": [
         {
           "days": 1,
-          "uptime": 98.62,
-          "observedSeconds": 34396
+          "uptime": 98.648,
+          "observedSeconds": 35114
         },
         {
           "days": 7,
-          "uptime": 98.62,
-          "observedSeconds": 34396
+          "uptime": 98.648,
+          "observedSeconds": 35114
         },
         {
           "days": 30,
-          "uptime": 98.62,
-          "observedSeconds": 34396
+          "uptime": 98.648,
+          "observedSeconds": 35114
         }
       ],
       "days": [
@@ -1927,10 +1927,10 @@
         },
         {
           "date": "2026-11-16",
-          "checks": 58,
+          "checks": 59,
           "failed": 1,
-          "upSeconds": 29327.462,
-          "observedSeconds": 29802.248999999996,
+          "upSeconds": 30044.857,
+          "observedSeconds": 30519.643999999997,
           "sources": [
             "upptime"
           ]
