@@ -15,25 +15,32 @@ function element(tag, className, text) {
   if (text !== undefined) node.textContent = text;
   return node;
 }
+function statusState(services) {
+  if (services.some(service => !fresh(service))) return 'unknown';
+  if (services.every(service => service.status === 'up')) return 'up';
+  if (services.every(service => service.status === 'down')) return 'down';
+  return 'degraded';
+}
+function publicService(data) {
+  return data.service || {...data.services.find(s => s.slug === 'website'), name: 'ガイセンNOW', description: '街宣情報・ニュースの閲覧'};
+}
 function renderOverall(services) {
-  const stale = services.some(service => !fresh(service));
-  const failed = services.filter(service => service.status !== 'up').length;
-  const state = stale ? 'unknown' : failed === services.length ? 'down' : failed ? 'degraded' : 'up';
+  const state = statusState(services);
   $('#current-status').dataset.state = state;
   $('#overall-title').textContent = {up: '正常に稼働しています', down: '障害を検知しています', degraded: '一部で障害を検知しています', unknown: '最新の状態を確認できていません'}[state];
   $('#overall-description').textContent = {up: '監視しているページへの接続を確認できています。', down: 'ページにアクセスしにくい状態です。復旧状況はこちらでお知らせします。', degraded: '一部のページにアクセスしにくい状態です。', unknown: '監視結果の更新が遅れています。最終確認の日時をご確認ください。'}[state];
   const oldest = Math.min(...services.map(s => Date.parse(s.checkedAt)));
   $('#checked-at').textContent = '最終確認：' + (Number.isFinite(oldest) ? format(new Date(oldest).toISOString()) + '（日本時間）' : '確認できていません');
 }
-function renderServices(services) {
-  const nodes = services.map(service => {
+function renderServices(data) {
+  const nodes = [publicService(data)].map(service => {
     const card = element('article', 'service-card');
     const top = element('div', 'service-top'), copy = element('div');
     copy.append(element('h3', '', service.name), element('p', 'service-description', service.description));
-    const state = fresh(service) ? service.status : 'unknown';
-    top.append(copy, element('span', 'status-badge ' + state, {up: '正常', down: '障害を検知', degraded: '応答が不安定', unknown: '最新状況は未確認'}[state]));
+    const state = statusState(data.services);
+    top.append(copy, element('span', 'status-badge ' + state, {up: '正常', down: '障害を検知', degraded: '一部障害', unknown: '最新状況は未確認'}[state]));
     const meta = element('div', 'service-meta');
-    const response = element('span', '', '応答時間 ');
+    const response = element('span', '', '応答時間（最長） ');
     response.append(element('b', '', state === 'up' && Number.isFinite(service.responseTime) ? Math.round(service.responseTime).toLocaleString('ja-JP') + ' ms' : '—'));
     meta.append(response, element('span', '', '最終確認 ' + (Number.isFinite(Date.parse(service.checkedAt)) ? clock.format(new Date(service.checkedAt)) : '—')));
     card.append(top, meta);
@@ -56,11 +63,13 @@ function renderHistory(services) {
     const days = new Map(service.days.map(day => [day.date, day]));
     for (let i = 0; i < range; i++) {
       const date = jstDate(start + i * 86400000), day = days.get(date);
-      const state = !day ? 'unknown' : day.failed > 0 ? 'down' : 'up';
+      const downtime = day ? day.observedSeconds - day.upSeconds : 0;
+      const state = !day ? 'unknown' : downtime > 0 && (day.partialSeconds || 0) >= downtime - 0.001 ? 'degraded' : day.failed > 0 || downtime > 0 ? 'down' : 'up';
       const historical = day?.sources?.includes('uptimerobot');
-      const detail = !day ? '計測データなし' : historical
-        ? (state === 'up' ? '計測範囲で正常' : '障害を検知') + '。稼働率 ' + (day.upSeconds / day.observedSeconds * 100).toFixed(3) + '%、障害を含む時間 ' + Math.round((day.observedSeconds - day.upSeconds) / 60) + '分（UptimeRobot' + (day.sources.includes('upptime') ? '・新しい監視' : '') + 'の記録）'
-        : (state === 'up' ? '計測範囲で正常' : '障害を検知') + '。監視 ' + day.checks + '回、障害検知 ' + day.failed + '回、計測時間 ' + Math.round(day.observedSeconds / 60) + '分';
+      const stateText = {up:'計測範囲で正常', down:'障害を検知', degraded:'一部で障害を検知'}[state];
+      const detail = !day ? '計測データなし' : day.observedSeconds > 0
+        ? stateText + '。稼働率 ' + (day.upSeconds / day.observedSeconds * 100).toFixed(3) + '%、障害時間 ' + Math.round(downtime / 60) + '分' + (historical ? '（UptimeRobot' + (day.sources.includes('upptime') ? '・新しい監視' : '') + 'の記録）' : '')
+        : stateText + '。稼働率は集計中です';
       const description = date.replaceAll('-', '/') + '：' + detail;
       const button = element('button', 'day-bar ' + state);
       button.type = 'button';
@@ -110,7 +119,7 @@ function renderIncidents(data) {
     const card = element('article', 'incident');
     const top = element('div', 'incident-head');
     const maintenance = item.type === 'maintenance', open = item.state === 'open';
-    const title = maintenance ? item.title : (item.services.join('・') || 'ガイセンNOW') + 'の接続障害';
+    const title = maintenance ? item.title : 'ガイセンNOWの接続障害';
     top.append(element('h3', '', title), element('span', 'status-badge ' + (open ? 'degraded' : 'up'), maintenance ? (open ? 'お知らせ' : '終了') : (open ? '障害を検知' : '復旧済み')));
     const times = element('p', '', '発生：' + format(item.startedAt) + (item.resolvedAt ? ' ／ 復旧：' + format(item.resolvedAt) : ''));
     card.append(top, times);
@@ -130,8 +139,8 @@ function renderIncidents(data) {
   root.replaceChildren(...notices, ...cards);
 }
 function render(data) {
-  renderOverall(data.services); renderServices(data.services); renderHistory(data.services); renderIncidents(data);
-  const main = data.services.find(s => s.slug === 'website');
+  renderOverall(data.services); renderServices(data); renderHistory([publicService(data)]); renderIncidents(data);
+  const main = publicService(data);
   for (const period of main.periods) {
     const strong = $('#uptime-' + period.days);
     if (!strong) continue;
@@ -141,7 +150,7 @@ function render(data) {
     ? '履歴の開始：' + format(main.historyStartedAt) + '。UptimeRobotの過去の記録と、新しい監視結果を集計しています。'
     : '監視開始：' + format(main.startedAt) + '。開始以降、計測できた時間をもとに集計しています。';
   $('#history-source').hidden = !data.historicalImport;
-  if (data.historicalImport) $('#history-source').textContent = 'ウェブサイトの' + format(data.historicalImport.coverage.end) + '以前はUptimeRobotの記録です。以降の履歴とニュースは、新しい監視結果を表示しています。';
+  if (data.historicalImport) $('#history-source').textContent = format(data.historicalImport.coverage.end) + '以前はUptimeRobotの記録です。以降はトップページとニュースをまとめた監視結果です。';
 }
 async function refresh() {
   if (refreshing) return;
@@ -170,7 +179,7 @@ async function refresh() {
 document.querySelectorAll('[data-range]').forEach(button => button.addEventListener('click', () => {
   range = Number(button.dataset.range);
   document.querySelectorAll('[data-range]').forEach(b => b.setAttribute('aria-pressed', b === button ? 'true' : 'false'));
-  if (current) renderHistory(current.services);
+  if (current) renderHistory([publicService(current)]);
 }));
 refresh();
 setInterval(() => { if (!document.hidden) refresh(); }, 60000);

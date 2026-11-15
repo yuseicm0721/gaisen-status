@@ -1,5 +1,5 @@
 import {readFile, writeFile, mkdir} from 'node:fs/promises';
-import {monitors, summarize} from './status-model.mjs';
+import {monitors, summarize, summarizeCombined, combinedStatus} from './status-model.mjs';
 const now = Date.now();
 await mkdir('history', {recursive: true});
 let ledger = {};
@@ -37,5 +37,15 @@ if (archive) incidents.push(...archive.incidents);
 incidents.sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt));
 await writeFile('history/checks.json', JSON.stringify(ledger) + '\n');
 const historicalImport = archive ? {source: archive.source, coverage: archive.coverage, incidentCount: archive.incidents.length, importedAt: archive.fetchedAt} : null;
-await writeFile('status-data.json', JSON.stringify({version: 1, generatedAt: new Date(now).toISOString(), intervalMinutes: 5, services, incidents, incidentsAvailable, historicalImport}, null, 2) + '\n');
+const start = Math.max(...services.map(s => Date.parse(s.startedAt)));
+const service = {
+  slug: 'gaisen-now', name: 'ガイセンNOW', description: '街宣情報・ニュースの閲覧',
+  status: combinedStatus(services.map(s => s.status)),
+  checkedAt: new Date(Math.min(...services.map(s => Date.parse(s.checkedAt)))).toISOString(),
+  responseTime: Math.max(...services.map(s => s.responseTime)),
+  startedAt: new Date(start).toISOString(),
+  historyStartedAt: archive ? archive.coverage.start : new Date(start).toISOString(),
+  ...summarizeCombined(monitors.map(m => ledger[m.slug]), now, archive),
+};
+await writeFile('status-data.json', JSON.stringify({version: 1, generatedAt: new Date(now).toISOString(), intervalMinutes: 5, service, services, incidents, incidentsAvailable, historicalImport}, null, 2) + '\n');
 console.log('Exported ' + services.length + ' monitors; incidents available: ' + incidentsAvailable);
