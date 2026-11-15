@@ -1,0 +1,925 @@
+{
+  "version": 1,
+  "source": "uptimerobot",
+  "monitorId": 800442063,
+  "sourceUrl": "https://stats.uptimerobot.com/yAGp5S796R/800442063",
+  "publicApiUrl": "https://stats.uptimerobot.com/api/getMonitor/yAGp5S796R?m=800442063",
+  "fetchedAt": "2026-11-15T14:09:07.371Z",
+  "sourceTimezone": "+09:00",
+  "sourceDailyRatioTimezone": "UTC",
+  "displayTimezone": "Asia/Tokyo",
+  "coverage": {
+    "start": "2026-08-18T00:00:00.000Z",
+    "end": "2026-11-15T13:43:24.977Z"
+  },
+  "validation": {
+    "dailyRatiosCompared": 90,
+    "matched": true,
+    "tolerancePercentagePoints": 0.001
+  },
+  "incidents": [
+    {
+      "id": "uptimerobot-800442063-1786277882",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-08-09T12:18:02.000Z",
+      "resolvedAt": "2026-08-09T12:23:07.000Z",
+      "durationSeconds": 305,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1786303868",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-08-09T19:31:08.000Z",
+      "resolvedAt": "2026-08-09T19:36:14.000Z",
+      "durationSeconds": 306,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1786402857",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-08-10T23:00:57.000Z",
+      "resolvedAt": "2026-08-10T23:06:03.000Z",
+      "durationSeconds": 306,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1787040781",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-08-18T08:13:01.000Z",
+      "resolvedAt": "2026-08-18T08:18:06.000Z",
+      "durationSeconds": 305,
+      "code": "333333"
+    },
+    {
+      "id": "uptimerobot-800442063-1787692615",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-08-25T21:16:55.000Z",
+      "resolvedAt": "2026-08-25T21:22:00.000Z",
+      "durationSeconds": 305,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1788118259",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-08-30T19:30:59.000Z",
+      "resolvedAt": "2026-08-30T19:36:03.000Z",
+      "durationSeconds": 304,
+      "code": "502"
+    },
+    {
+      "id": "uptimerobot-800442063-1788486093",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-04T01:41:33.000Z",
+      "resolvedAt": "2026-09-04T01:46:38.000Z",
+      "durationSeconds": 305,
+      "code": "333333"
+    },
+    {
+      "id": "uptimerobot-800442063-1788553898",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-04T20:31:38.000Z",
+      "resolvedAt": "2026-09-04T20:36:42.000Z",
+      "durationSeconds": 304,
+      "code": "333333"
+    },
+    {
+      "id": "uptimerobot-800442063-1788624244",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-05T16:04:04.000Z",
+      "resolvedAt": "2026-09-05T16:09:10.000Z",
+      "durationSeconds": 306,
+      "code": "333333"
+    },
+    {
+      "id": "uptimerobot-800442063-1788649342",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-05T23:02:22.000Z",
+      "resolvedAt": "2026-09-05T23:32:53.000Z",
+      "durationSeconds": 1831,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1788666373",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-06T03:46:13.000Z",
+      "resolvedAt": "2026-09-06T03:51:16.000Z",
+      "durationSeconds": 303,
+      "code": "333333"
+    },
+    {
+      "id": "uptimerobot-800442063-1788681515",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-06T07:58:35.000Z",
+      "resolvedAt": "2026-09-06T08:03:40.000Z",
+      "durationSeconds": 305,
+      "code": "333333"
+    },
+    {
+      "id": "uptimerobot-800442063-1789081262",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-10T23:01:02.000Z",
+      "resolvedAt": "2026-09-10T23:06:08.000Z",
+      "durationSeconds": 306,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1789100021",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-11T04:13:41.000Z",
+      "resolvedAt": "2026-09-11T04:18:46.000Z",
+      "durationSeconds": 305,
+      "code": "333333"
+    },
+    {
+      "id": "uptimerobot-800442063-1789534180",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-16T04:49:40.000Z",
+      "resolvedAt": "2026-09-16T04:54:44.000Z",
+      "durationSeconds": 304,
+      "code": "333333"
+    },
+    {
+      "id": "uptimerobot-800442063-1790537483",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-09-27T19:31:23.000Z",
+      "resolvedAt": "2026-09-27T19:36:29.000Z",
+      "durationSeconds": 306,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1790895657",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-10-01T23:00:57.000Z",
+      "resolvedAt": "2026-10-01T23:06:03.000Z",
+      "durationSeconds": 306,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1791747081",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-10-11T19:31:21.000Z",
+      "resolvedAt": "2026-10-11T19:36:27.000Z",
+      "durationSeconds": 306,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1791759650",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-10-11T23:00:50.000Z",
+      "resolvedAt": "2026-10-11T23:05:53.000Z",
+      "durationSeconds": 303,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1792450909",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-10-19T23:01:49.000Z",
+      "resolvedAt": "2026-10-19T23:06:52.000Z",
+      "durationSeconds": 303,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1792592265",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-10-21T14:17:45.000Z",
+      "resolvedAt": "2026-10-22T00:44:11.000Z",
+      "durationSeconds": 37586,
+      "code": "503"
+    },
+    {
+      "id": "uptimerobot-800442063-1792630205",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-10-22T00:50:05.000Z",
+      "resolvedAt": "2026-10-22T00:55:10.000Z",
+      "durationSeconds": 305,
+      "code": "503"
+    },
+    {
+      "id": "uptimerobot-800442063-1792829249",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-10-24T08:07:29.000Z",
+      "resolvedAt": "2026-10-24T08:17:39.000Z",
+      "durationSeconds": 610,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1793833248",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-11-04T23:00:48.000Z",
+      "resolvedAt": "2026-11-04T23:05:53.000Z",
+      "durationSeconds": 305,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1794092447",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-11-07T23:00:47.000Z",
+      "resolvedAt": "2026-11-07T23:05:51.000Z",
+      "durationSeconds": 304,
+      "code": "530"
+    },
+    {
+      "id": "uptimerobot-800442063-1794166285",
+      "source": "uptimerobot",
+      "type": "incident",
+      "services": [
+        "ウェブサイト"
+      ],
+      "state": "closed",
+      "startedAt": "2026-11-08T19:31:25.000Z",
+      "resolvedAt": "2026-11-08T19:36:31.000Z",
+      "durationSeconds": 306,
+      "code": "530"
+    }
+  ],
+  "dailyRatios": [
+    {
+      "date": "2026-08-18",
+      "ratio": "99.647",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-08-19",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-20",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-21",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-22",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-23",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-24",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-25",
+      "ratio": "99.647",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-08-26",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-27",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-28",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-29",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-08-30",
+      "ratio": "99.648",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-08-31",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-01",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-02",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-03",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-04",
+      "ratio": "99.295",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-09-05",
+      "ratio": "97.527",
+      "label": "fair",
+      "color": "yellow"
+    },
+    {
+      "date": "2026-09-06",
+      "ratio": "99.296",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-09-07",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-08",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-09",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-10",
+      "ratio": "99.646",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-09-11",
+      "ratio": "99.647",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-09-12",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-13",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-14",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-15",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-16",
+      "ratio": "99.648",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-09-17",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-18",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-19",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-20",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-21",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-22",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-23",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-24",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-25",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-26",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-27",
+      "ratio": "99.646",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-09-28",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-29",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-09-30",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-01",
+      "ratio": "99.646",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-10-02",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-03",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-04",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-05",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-06",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-07",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-08",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-09",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-10",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-11",
+      "ratio": "99.295",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-10-12",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-13",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-14",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-15",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-16",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-17",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-18",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-19",
+      "ratio": "99.649",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-10-20",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-21",
+      "ratio": "59.566",
+      "label": "poor",
+      "color": "red"
+    },
+    {
+      "date": "2026-10-22",
+      "ratio": "96.579",
+      "label": "fair",
+      "color": "yellow"
+    },
+    {
+      "date": "2026-10-23",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-24",
+      "ratio": "99.294",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-10-25",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-26",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-27",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-28",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-29",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-30",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-10-31",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-01",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-02",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-03",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-04",
+      "ratio": "99.647",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-11-05",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-06",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-07",
+      "ratio": "99.648",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-11-08",
+      "ratio": "99.646",
+      "label": "good",
+      "color": "blue"
+    },
+    {
+      "date": "2026-11-09",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-10",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-11",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-12",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-13",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-14",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    {
+      "date": "2026-11-15",
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    }
+  ],
+  "sourceRatios": {
+    "1dRatio": {
+      "ratio": "100.000",
+      "label": "excellent",
+      "color": "green"
+    },
+    "7dRatio": {
+      "ratio": "99.949",
+      "label": "excellent",
+      "color": "green"
+    },
+    "30dRatio": {
+      "ratio": "98.468",
+      "label": "good",
+      "color": "blue"
+    },
+    "90dRatio": {
+      "ratio": "99.407",
+      "label": "good",
+      "color": "blue"
+    }
+  },
+  "sourceSha256": "37b8494c04b7a8dd8d15d4f0b356dd6a99277c86c0fe83491f66165565b6269a"
+}

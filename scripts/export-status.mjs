@@ -4,6 +4,8 @@ const now = Date.now();
 await mkdir('history', {recursive: true});
 let ledger = {};
 try { ledger = JSON.parse(await readFile('history/checks.json', 'utf8')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+let archive = null;
+try { archive = JSON.parse(await readFile('history/imported/uptimerobot-800442063.json', 'utf8')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
 const services = [];
 for (const monitor of monitors) {
   const text = await readFile(`history/${monitor.slug}.yml`, 'utf8');
@@ -13,7 +15,10 @@ for (const monitor of monitors) {
   const samples = (ledger[monitor.slug] || []).filter(s => s[0] > now - 91 * 86400000 && s[0] !== checked);
   samples.push([checked, history.status, +history.responseTime]);
   ledger[monitor.slug] = samples.sort((a, b) => a[0] - b[0]);
-  services.push({...monitor, status: history.status, code: +history.code, responseTime: +history.responseTime, checkedAt: history.lastUpdated, startedAt: history.startTime, ...summarize(samples, now)});
+  const historical = monitor.slug === 'website' ? archive : null;
+  services.push({...monitor, status: history.status, code: +history.code, responseTime: +history.responseTime, checkedAt: history.lastUpdated, startedAt: history.startTime,
+    historyStartedAt: historical ? historical.coverage.start : history.startTime,
+    ...summarize(samples, now, historical)});
 }
 let incidents = [], incidentsAvailable = true;
 try {
@@ -28,6 +33,9 @@ try {
     state: issue.state, startedAt: issue.created_at, resolvedAt: issue.closed_at, url: issue.html_url,
   }));
 } catch (error) { incidentsAvailable = false; console.warn(error.message); }
+if (archive) incidents.push(...archive.incidents);
+incidents.sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt));
 await writeFile('history/checks.json', JSON.stringify(ledger) + '\n');
-await writeFile('status-data.json', JSON.stringify({version: 1, generatedAt: new Date(now).toISOString(), intervalMinutes: 5, services, incidents, incidentsAvailable}, null, 2) + '\n');
+const historicalImport = archive ? {source: archive.source, coverage: archive.coverage, incidentCount: archive.incidents.length, importedAt: archive.fetchedAt} : null;
+await writeFile('status-data.json', JSON.stringify({version: 1, generatedAt: new Date(now).toISOString(), intervalMinutes: 5, services, incidents, incidentsAvailable, historicalImport}, null, 2) + '\n');
 console.log('Exported ' + services.length + ' monitors; incidents available: ' + incidentsAvailable);

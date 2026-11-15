@@ -2,7 +2,7 @@ const $ = selector => document.querySelector(selector);
 const STALE_AFTER = 20 * 60000;
 const dateTime = new Intl.DateTimeFormat('ja-JP', {timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'});
 const clock = new Intl.DateTimeFormat('ja-JP', {timeZone: 'Asia/Tokyo', hour: '2-digit', minute: '2-digit'});
-let current = null, range = 30, refreshing = false;
+let current = null, range = 30, refreshing = false, incidentLimit = 5;
 const format = value => Number.isFinite(Date.parse(value)) ? dateTime.format(new Date(value)) : '確認できていません';
 const jstDate = time => new Date(time + 9 * 3600000).toISOString().slice(0, 10);
 const fresh = service => {
@@ -47,7 +47,7 @@ function renderHistory(services) {
   $('#history').replaceChildren(...services.map(service => {
     const row = element('div', 'history-row');
     const label = element('div', 'history-label');
-    label.append(element('h3', '', service.name), element('span', '', '監視開始 ' + format(service.startedAt)));
+    label.append(element('h3', '', service.name), element('span', '', '履歴 ' + format(service.historyStartedAt || service.startedAt) + '〜'));
     const bars = element('div', 'day-bars');
     bars.style.setProperty('--days', range);
     bars.dataset.count = range;
@@ -57,7 +57,11 @@ function renderHistory(services) {
     for (let i = 0; i < range; i++) {
       const date = jstDate(start + i * 86400000), day = days.get(date);
       const state = !day ? 'unknown' : day.failed > 0 ? 'down' : 'up';
-      const description = date.replaceAll('-', '/') + '：' + (!day ? '計測データなし' : (state === 'up' ? '計測範囲で正常' : '障害を検知') + '。監視 ' + day.checks + '回、障害検知 ' + day.failed + '回、計測時間 ' + Math.round(day.observedSeconds / 60) + '分');
+      const historical = day?.sources?.includes('uptimerobot');
+      const detail = !day ? '計測データなし' : historical
+        ? (state === 'up' ? '計測範囲で正常' : '障害を検知') + '。稼働率 ' + (day.upSeconds / day.observedSeconds * 100).toFixed(3) + '%、障害を含む時間 ' + Math.round((day.observedSeconds - day.upSeconds) / 60) + '分（UptimeRobot' + (day.sources.includes('upptime') ? '・新しい監視' : '') + 'の記録）'
+        : (state === 'up' ? '計測範囲で正常' : '障害を検知') + '。監視 ' + day.checks + '回、障害検知 ' + day.failed + '回、計測時間 ' + Math.round(day.observedSeconds / 60) + '分';
+      const description = date.replaceAll('-', '/') + '：' + detail;
       const button = element('button', 'day-bar ' + state);
       button.type = 'button';
       button.title = description;
@@ -90,29 +94,40 @@ function renderHistory(services) {
 }
 function renderIncidents(data) {
   const root = $('#incidents');
+  const notices = [];
   if (!data.incidentsAvailable) {
-    root.replaceChildren(element('p', 'notice', '現在、お知らせを取得できていません。時間をおいてご確認ください。'));
-    return;
+    notices.push(element('p', 'notice', '最新のお知らせを取得できていません。保存済みの過去の記録を表示しています。'));
   }
   if (!data.incidents.length) {
+    if (notices.length) { root.replaceChildren(...notices); return; }
     const panel = element('div', 'empty-incidents');
     const copy = element('div');
     copy.append(element('h3', '', 'これまでに記録されたお知らせはありません'), element('p', '', '監視開始以降の障害とメンテナンス情報を、こちらに掲載します。'));
     const icon = element('span', 'empty-icon', '✓'); icon.setAttribute('aria-hidden', 'true');
     panel.append(icon, copy); root.replaceChildren(panel); return;
   }
-  root.replaceChildren(...data.incidents.map(item => {
+  const cards = data.incidents.slice(0, incidentLimit).map(item => {
     const card = element('article', 'incident');
     const top = element('div', 'incident-head');
     const maintenance = item.type === 'maintenance', open = item.state === 'open';
     const title = maintenance ? item.title : (item.services.join('・') || 'ガイセンNOW') + 'の接続障害';
     top.append(element('h3', '', title), element('span', 'status-badge ' + (open ? 'degraded' : 'up'), maintenance ? (open ? 'お知らせ' : '終了') : (open ? '障害を検知' : '復旧済み')));
     const times = element('p', '', '発生：' + format(item.startedAt) + (item.resolvedAt ? ' ／ 復旧：' + format(item.resolvedAt) : ''));
-    const link = element('a', '', '記録を見る ↗');
-    if (/^https:\/\/github\.com\/yuseicm0721\/gaisen-status\/issues\/\d+$/.test(item.url)) link.href = item.url;
-    link.target = '_blank'; link.rel = 'noopener noreferrer';
-    card.append(top, times, link); return card;
-  }));
+    card.append(top, times);
+    if (item.source === 'uptimerobot') card.append(element('p', 'incident-source', 'UptimeRobotの過去の記録'));
+    else if (/^https:\/\/github\.com\/yuseicm0721\/gaisen-status\/issues\/\d+$/.test(item.url)) {
+      const link = element('a', '', '記録を見る ↗');
+      link.href = item.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; card.append(link);
+    }
+    return card;
+  });
+  if (data.incidents.length > incidentLimit) {
+    const button = element('button', 'load-more-incidents', '過去のお知らせをもっと見る（残り' + (data.incidents.length - incidentLimit) + '件）');
+    button.type = 'button';
+    button.addEventListener('click', () => { incidentLimit += 10; renderIncidents(current); });
+    cards.push(button);
+  }
+  root.replaceChildren(...notices, ...cards);
 }
 function render(data) {
   renderOverall(data.services); renderServices(data.services); renderHistory(data.services); renderIncidents(data);
@@ -122,7 +137,11 @@ function render(data) {
     if (!strong) continue;
     strong.replaceChildren(document.createTextNode(period.uptime === null ? '集計中' : period.uptime.toFixed(2)), ...(period.uptime === null ? [] : [element('small', '', '%')]));
   }
-  $('#metrics-note').textContent = '監視開始：' + format(main.startedAt) + '。開始以降、計測できた時間をもとに集計しています。';
+  $('#metrics-note').textContent = data.historicalImport
+    ? '履歴の開始：' + format(main.historyStartedAt) + '。UptimeRobotの過去の記録と、新しい監視結果を集計しています。'
+    : '監視開始：' + format(main.startedAt) + '。開始以降、計測できた時間をもとに集計しています。';
+  $('#history-source').hidden = !data.historicalImport;
+  if (data.historicalImport) $('#history-source').textContent = 'ウェブサイトの' + format(data.historicalImport.coverage.end) + '以前はUptimeRobotの記録です。以降の履歴とニュースは、新しい監視結果を表示しています。';
 }
 async function refresh() {
   if (refreshing) return;
