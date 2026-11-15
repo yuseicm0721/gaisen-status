@@ -1,0 +1,5 @@
+LINE Seed JP by LY Corporation, RixFont and Fontworks.
+https://seed.line.me/index_jp.html
+https://github.com/google/fonts/tree/main/ofl/lineseedjp
+SIL Open Font License 1.1; see OFL.txt.
+Google Fonts unicode subsets for weights 400, 700, 800, display=swap.

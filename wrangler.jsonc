@@ -1,0 +1,8 @@
+{
+  "name": "gaisen-status",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-11-15",
+  "workers_dev": true,
+  "routes": [{"pattern": "gaisen.1mr.jp/status*", "zone_name": "1mr.jp"}],
+  "observability": {"enabled": false}
+}

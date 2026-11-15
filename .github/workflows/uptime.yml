@@ -1,0 +1,44 @@
+name: ガイセンNOW 稼働監視
+on:
+  schedule:
+    - cron: '2-59/5 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .upptimerc.yml
+      - .github/workflows/uptime.yml
+      - scripts/**
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: gaisen-uptime
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 1
+      - name: Upptimeで接続と本文を確認
+        uses: upptime/uptime-monitor@74f0683383384927e064d76a5f21f340d6af36fc # v1.46.5
+        with:
+          command: response-time
+        env:
+          GH_PAT: ${{ github.token }}
+          SECRETS_CONTEXT: '{}'
+      - name: 公開用の履歴を集計
+        run: node scripts/export-status.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: 監視結果を保存
+        run: |
+          git config user.name 'Upptime Bot'
+          git config user.email '73812536+upptime-bot@users.noreply.github.com'
+          git add history/checks.json status-data.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Update public status data [skip ci]'
+          git push
