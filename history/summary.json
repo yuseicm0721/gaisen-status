@@ -1,0 +1,38 @@
+[
+  {
+    "name": "ウェブサイト",
+    "url": "https://gaisen.1mr.jp/",
+    "icon": "https://icons.duckduckgo.com/ip3/gaisen.1mr.jp.ico",
+    "slug": "website",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 1667,
+    "timeDay": 1667,
+    "timeWeek": 1667,
+    "timeMonth": 1667,
+    "timeYear": 1667,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "ニュース",
+    "url": "https://gaisen.1mr.jp/news",
+    "icon": "https://icons.duckduckgo.com/ip3/gaisen.1mr.jp.ico",
+    "slug": "news",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 550,
+    "timeDay": 550,
+    "timeWeek": 550,
+    "timeMonth": 550,
+    "timeYear": 550,
+    "dailyMinutesDown": {}
+  }
+]
