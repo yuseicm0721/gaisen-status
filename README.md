@@ -10,7 +10,7 @@
 - 接続先はガイセン NOW のトップページとニュース。HTTP 200 と本文の「ガイセン NOW」を確認。
 - Upptime が接続障害の Issue を作成し、復旧時に閉じます。検知時は再試行します。
 - `scripts/export-status.mjs` が監視結果と Issue から `status-data.json` を生成。直近 91 日の測定結果を `history/checks.json` に保持します。
-- GitHub Pages が `main` ブランチの `docs` を配信。
+- GitHub Pages は専用の公開ワークフローで `docs` を配信。画面変更時だけ実行し、監視データの更新時は再公開しません。
 - Cloudflare Worker が `/status` と関連リソースを配信。画面・フォントは GitHub Pages、監視結果は公開リポジトリから取得。本体の Raspberry Pi への接続は不要です。
 - 本体と同じロゴ、LINE Seed JP、配色、ヘッダーとフッターを使用。必要なアセットをこのリポジトリ内に保持します。
 
@@ -32,7 +32,7 @@ GitHub Actions の定期実行は混雑時に遅延・欠落する場合があ�
 - 手動確認: Actions の「ガイセン NOW 稼働監視」から Run workflow。
 - 障害の詳細: Upptime が生成する Issue に運用メモを残せます。
 - メンテナンスのお知らせ: このリポジトリに Issue を作成し `maintenance` ラベルを付けると、タイトルと状態を公開画面に表示します。公開してよい内容のみを記入してください。
-- 画面変更: `docs` を更新して main へ push。GitHub Pages の反映後、Worker のキャッシュは最大 1 時間で更新。
+- 画面変更: `docs` を更新して main へ push。GitHub Pages の反映後、Worker のキャッシュは最大 1 時間で更新。即時反映が必要な場合は `src/worker.js` のキャッシュキーのバージョンを更新し再デプロイします。
 - Worker 変更: `src/worker.js` を更新し、Cloudflare ダッシュボードのコード編集または認証済みの Wrangler でデプロイ。
 - ルート: `gaisen.1mr.jp/status*`。Worker 内で許可したファイルのみを配信します。
 - 切り戻し: Cloudflare で `gaisen-status` のルートを削除し、本体のフッターリンクを以前の UptimeRobot の URL へ戻します。既存の UptimeRobot 監視は変更していません。
