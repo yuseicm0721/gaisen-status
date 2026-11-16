@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-16T01:45:30.547Z",
+  "generatedAt": "2026-11-16T01:54:52.110Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
@@ -9,25 +9,25 @@
     "url": "https://gaisen.1mr.jp/",
     "status": "up",
     "code": 200,
-    "responseTime": 1642,
-    "checkedAt": "2026-11-16T01:45:29.247Z",
+    "responseTime": 1735,
+    "checkedAt": "2026-11-16T01:54:50.927Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
       {
         "days": 1,
         "uptime": 99.407,
-        "observedSeconds": 81940
+        "observedSeconds": 81941
       },
       {
         "days": 7,
         "uptime": 99.919,
-        "observedSeconds": 600340
+        "observedSeconds": 600341
       },
       {
         "days": 30,
         "uptime": 98.446,
-        "observedSeconds": 2587540
+        "observedSeconds": 2587541
       }
     ],
     "days": [
@@ -934,10 +934,10 @@
       },
       {
         "date": "2026-11-16",
-        "checks": 72,
+        "checks": 73,
         "failed": 1,
-        "upSeconds": 33784.925,
-        "observedSeconds": 34270.992,
+        "upSeconds": 34346.605,
+        "observedSeconds": 34832.672,
         "sources": [
           "upptime"
         ]
@@ -952,25 +952,25 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1642,
-      "checkedAt": "2026-11-16T01:45:29.247Z",
+      "responseTime": 1735,
+      "checkedAt": "2026-11-16T01:54:50.927Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
           "uptime": 99.407,
-          "observedSeconds": 81940
+          "observedSeconds": 81941
         },
         {
           "days": 7,
           "uptime": 99.919,
-          "observedSeconds": 600340
+          "observedSeconds": 600341
         },
         {
           "days": 30,
           "uptime": 98.446,
-          "observedSeconds": 2587540
+          "observedSeconds": 2587541
         }
       ],
       "days": [
@@ -1877,10 +1877,10 @@
         },
         {
           "date": "2026-11-16",
-          "checks": 72,
+          "checks": 73,
           "failed": 1,
-          "upSeconds": 33784.925,
-          "observedSeconds": 34270.992,
+          "upSeconds": 34346.605,
+          "observedSeconds": 34832.672,
           "sources": [
             "upptime"
           ]
