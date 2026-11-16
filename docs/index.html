@@ -44,6 +44,7 @@
     </section>
     <noscript><p class="notice">稼働状況を表示するにはJavaScriptを有効にしてください。<a href="https://github.com/yuseicm0721/gaisen-status/issues">障害のお知らせを確認する ↗</a></p></noscript>
     <div id="refresh-notice" class="notice" role="status" hidden></div>
+    <div id="monitoring-notice" class="notice" role="status" hidden></div>
     <section class="metrics" aria-label="ガイセンNOWの稼働率">
       <div class="metric"><p>直近24時間の稼働率</p><strong id="uptime-1">—</strong><span>ガイセンNOW</span></div>
       <div class="metric"><p>直近7日間の稼働率</p><strong id="uptime-7">—</strong><span>ガイセンNOW</span></div>
@@ -65,7 +66,7 @@
       <div class="section-heading"><div><p class="eyebrow">INCIDENTS &amp; MAINTENANCE</p><h2 id="incidents-title">障害・メンテナンスのお知らせ</h2></div></div>
       <div id="incidents"><p class="loading-text">お知らせを読み込んでいます。</p></div>
     </section>
-    <details class="status-guide"><summary>稼働状況の見方</summary><div><p>ガイセンNOWのトップページを、外部から約5分ごとに確認しています。接続できることとページ本文を確認しており、すべての機能の動作を保証するものではありません。</p><p>ガイセンNOWの過去の履歴には、UptimeRobotで計測した記録を引き継いでいます。元の日別稼働率と障害の発生・復旧時刻を照合し、日本時間で集計しています。過去の各チェックの回数は取得できないため表示していません。監視は「ガイセンNOW」1件で行い、接続と本文の確認結果から稼働率を算出します。</p><p>稼働率は、記録が得られた区間の時間から算出する目安です。取得できた履歴のない期間と、新しい監視で確認の間隔が15分を超えた区間は集計に含めません。履歴の「正常」は、その日に確認できた範囲での状態です。</p><p>監視の実行や結果の反映が遅れる場合があります。最終確認から20分を超えると、最新の状態を確認できていない旨を表示します。障害のお知らせには検知時のHTTP応答番号を表示します。HTTP応答が得られなかった場合や、番号の記録がない場合はその旨を表示します。番号だけで障害の原因を断定するものではありません。日時は日本時間です。</p></div></details>
+    <details class="status-guide"><summary>稼働状況の見方</summary><div><p>ガイセンNOWのトップページを、外部から約5分ごとに確認しています。接続できることとページ本文を確認しており、すべての機能の動作を保証するものではありません。</p><p>ガイセンNOWの過去の履歴には、UptimeRobotで計測した記録を引き継いでいます。元の日別稼働率と障害の発生・復旧時刻を照合し、日本時間で集計しています。過去の各チェックの回数は取得できないため表示していません。監視は「ガイセンNOW」1件で行い、接続と本文の確認結果から稼働率を算出します。</p><p>稼働率は、記録が得られた区間の時間から算出する目安です。取得できた履歴のない期間と、新しい監視で確認の間隔が15分を超えた区間は集計に含めません。履歴の「正常」は、その日に確認できた範囲での状態です。</p><p>監視の実行や結果の反映が遅れる場合があります。定期監視の結果が10分以上古い場合は、このページの配信元から接続と本文を追加確認します。追加確認は現在の状態だけに反映し、過去の稼働率や履歴の空白を補うものではありません。その場合は履歴側の最終更新日時を別に表示します。最終確認から20分を超えた結果は、最新の状態を確認できていない旨を表示します。障害のお知らせには検知時のHTTP応答番号を表示します。HTTP応答が得られなかった場合や、番号の記録がない場合はその旨を表示します。番号だけで障害の原因を断定するものではありません。日時は日本時間です。</p></div></details>
     <div class="return-link"><a href="/">街宣を探す <span aria-hidden="true">→</span></a></div>
   </main>
   <footer class="site-footer">

@@ -146,6 +146,9 @@ function renderIncidents(data) {
 function render(data) {
   renderOverall([publicService(data)]); renderServices(data); renderHistory([publicService(data)]); renderIncidents(data);
   const main = publicService(data);
+  const monitoringNotice = $('#monitoring-notice');
+  monitoringNotice.hidden = !data.liveVerification;
+  if (data.liveVerification) monitoringNotice.textContent = '定期監視の更新が遅れているため、現在の接続を追加で確認しています。稼働率・履歴・お知らせの最終更新：' + format(data.liveVerification.historyUpdatedAt) + '（日本時間）';
   for (const period of main.periods) {
     const strong = $('#uptime-' + period.days);
     if (!strong) continue;
