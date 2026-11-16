@@ -9,8 +9,8 @@
 - Cloudflare Workers の Cron Trigger で約5分ごとにトップページ https://gaisen.1mr.jp/ を確認します．HTTP 200 と本文の「ガイセンNOW」を確認し，失敗時は最大3回試行します．
 - 実測した接続状態，応答番号・時間，障害の発生と復旧，観測済みの時間区間を Workers KV に保存します．閲覧されていない間も実行・保存します．
 - `/status/data.json` は保存済みの記録から公開用の状態・稼働率・履歴を返します．GitHub Actions の定期実行を画面更新の前提にしません．
-- GitHub Actions は履歴のバックアップ専用です．約1時間ごと，または手動実行で 監視側の公開URL `https://gaisen-status.1mr.workers.dev/status/history.json` を取得し，`history/cloudflare-state.json` と `status-data.json` を保存します．この処理の遅延は公開画面の監視・履歴更新に影響しません．
-- GitHub の `maintenance` ラベル付き Issue は，監視処理が約1時間ごとに取得します．新しい障害のお知らせは定期監視が直接作成・更新します．
+- GitHub Actions は履歴のバックアップと手動のお知らせの配信を担当します．約1時間ごと，または手動実行で 監視側の公開URL `https://gaisen-status.1mr.workers.dev/status/history.json` を取得し，`history/cloudflare-state.json` と `status-data.json` を保存します．この処理の遅延は公開画面の監視・履歴更新に影響しません．
+- GitHub の `maintenance` ラベル付き Issue は，変更時と約1時間ごとのActionsで認証付きAPIから取得し，公開用の `maintenance.json` に保存します．Workerは定期監視時にこのファイルを同期します．Workerからの認証なしAPI呼び出しは使いません．6時間を超えて古いファイルや取得失敗は警告し，取得済みの記録は保持します．履歴のバックアップ取得が失敗しても，お知らせの配信は続け，失敗したバックアップはActionsで報告します．新しい障害のお知らせは定期監視が直接作成・更新します．
 - GitHub Pages は `docs` を画面変更時だけ配信します．Cloudflare Worker が画面・ロゴ・フォントを取得し，本体を経由せず `/status` を配信します．
 - ロゴ，LINE Seed JP，配色，ヘッダー・フッターは本体と統一しています．ニュースページの個別監視は行いません．
 
@@ -49,7 +49,7 @@ UptimeRobot の監視800442063から2026年11月15日に一度だけ取得した
 - Cloudflare の `gaisen-status` に `STATUS_STORE` を接続し，`gaisen-status-history` 名前空間を使用します．Cronは `*/5 * * * *` です．設定は `wrangler.jsonc` に保存しています．
 - `node scripts/build-worker.mjs` で，ダッシュボード編集用の単一ファイル `dist/worker.js` を生成します．認証済みのWranglerなら `src/worker.js` を直接デプロイできます．
 - コード公開後は `STATUS_STORE` の接続と `*/5 * * * *` のCronを確認します．ダッシュボードのCron追加ダイアログを閉じた後，ページ下部の「保存」を押して未保存の変更が消えるまで待ちます．ページを読み直しても設定が残ることを確認してから，本番の定期実行が複数回成功し，公開データの確認時刻と履歴が進むことを確認します．
-- GitHubのバックアップは Actions の「監視履歴をGitHubに保存」から手動実行できます．公開可能な監視記録だけを保存します．
+- GitHubのバックアップとお知らせ同期は Actions の「監視履歴とお知らせを保存」から手動実行できます．公開可能な監視記録だけを保存します．
 - 保存先を復旧する場合は `history/cloudflare-state.json` の最新バックアップをKVの `state` に戻します．保存データがない時は監視処理が最新のGitHubバックアップ，なければ初期記録を読みます．取り込めない場合は失敗として扱います．
 - 画面変更は `docs` を更新してmainへpushします．即時反映が必要ならWorkerのキャッシュキーも更新して再デプロイします．
 - Workerのルートは `gaisen.1mr.jp/status*` です．画面に必要な許可済みリソースと，公開用の監視結果・履歴だけを配信します．任意のURLは取得できません．公開エンドポイントから監視記録を書き換えることはできません．

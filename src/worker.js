@@ -2,7 +2,8 @@ import {recordResult, publicData} from './monitor-state.js';
 const STATIC_ORIGIN = 'https://yuseicm0721.github.io/gaisen-status/';
 const DATA_ORIGIN = 'https://raw.githubusercontent.com/yuseicm0721/gaisen-status/main/status-data.json';
 const LIVE_AFTER = 10 * 60000;
-const CACHE_BASE = 'https://gaisen.1mr.jp/status/__cache/20261116-4/';
+const CACHE_BASE = 'https://gaisen.1mr.jp/status/__cache/20261116-5/';
+const MAINTENANCE_ORIGIN = 'https://raw.githubusercontent.com/yuseicm0721/gaisen-status/main/maintenance.json';
 const CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'";
 export function resourceFor(pathname) {
   if (pathname === '/status' || pathname === '/status/') return {path: 'index.html', type: 'text/html; charset=utf-8', ttl: 300};
@@ -54,6 +55,16 @@ export function applyLiveCheck(data, live) {
 async function storedState(env) {
   return env.STATUS_STORE ? env.STATUS_STORE.get('state', {type:'json',cacheTtl:60}) : null;
 }
+export function mergeMaintenanceFeed(state, feed, now = Date.now()) {
+  const updated = Date.parse(feed?.generatedAt);
+  if (feed?.version !== 1 || !Number.isFinite(updated) || updated > now + 300000 || now - updated > 6 * 3600000 || !Array.isArray(feed.incidents)) throw new Error('Maintenance feed is invalid or stale');
+  const ids = new Set();
+  for (const item of feed.incidents) {
+    if (!Number.isSafeInteger(item.id) || item.id < 1 || ids.has(item.id) || item.type !== 'maintenance' || item.source !== 'upptime' || typeof item.title !== 'string' || !['open','closed'].includes(item.state) || !Number.isFinite(Date.parse(item.startedAt)) || (item.state === 'closed' && !Number.isFinite(Date.parse(item.resolvedAt))) || item.url !== 'https://github.com/yuseicm0721/gaisen-status/issues/' + item.id) throw new Error('Invalid maintenance record');
+    ids.add(item.id);
+  }
+  return {...state, incidents:[...state.incidents.filter(i=>i.type!=='maintenance'), ...feed.incidents.map(i=>({...i,services:['ガイセンNOW']}))].sort((a,b)=>Date.parse(b.startedAt)-Date.parse(a.startedAt)), maintenanceAvailable:true, maintenanceSourceUpdatedAt:feed.generatedAt, maintenanceSyncError:null};
+}
 export async function scheduledCheck(env) {
   if (!env.STATUS_STORE) throw new Error('Monitoring storage is not configured');
   let state=await storedState(env);
@@ -71,14 +82,18 @@ export async function scheduledCheck(env) {
   let result=await checkConnection();
   for(let attempt=1;result.status!=='up' && attempt<3;attempt++)result=await checkConnection();
   let next=recordResult(state,result);
-  if(Date.now()-(state.maintenanceSyncedAt || 0)>3600000) {
+  // GitHub Actions publishes this small public file using its existing token.
+  // Workers must not depend on GitHub's shared unauthenticated API quota.
+  if(!state.maintenanceSourceUpdatedAt || Date.now()-(state.maintenanceSyncedAt || 0)>240000) {
     try {
-      const response=await fetch('https://api.github.com/repos/yuseicm0721/gaisen-status/issues?state=all&labels=maintenance&per_page=100', {headers:{Accept:'application/vnd.github+json','User-Agent':'GaisenNOW-Status'},redirect:'manual',signal:AbortSignal.timeout(5000)});
-      if(!response.ok)throw new Error('Maintenance source unavailable');
-      const maintenance=(await response.json()).filter(i=>!i.pull_request).map(i=>({id:i.number,source:'upptime',type:'maintenance',services:['ガイセンNOW'],title:i.title,state:i.state,startedAt:i.created_at,resolvedAt:i.closed_at,url:i.html_url}));
-      next.incidents=[...next.incidents.filter(i=>i.type!=='maintenance'),...maintenance].sort((a,b)=>Date.parse(b.startedAt)-Date.parse(a.startedAt));
-      next.maintenanceAvailable=true;
-    } catch {next.maintenanceAvailable=false;}
+      const response=await fetch(MAINTENANCE_ORIGIN, {headers:{Accept:'application/json','User-Agent':'GaisenNOW-Status'},redirect:'manual',signal:AbortSignal.timeout(5000),cf:{cacheTtl:0}});
+      if(!response.ok)throw new Error('Maintenance feed HTTP '+response.status);
+      next=mergeMaintenanceFeed(next,await response.json());
+    } catch(error) {
+      next.maintenanceAvailable=false;
+      next.maintenanceSyncError=error instanceof Error ? error.message : 'Maintenance feed unavailable';
+      console.warn('Maintenance synchronization failed',next.maintenanceSyncError);
+    }
     next.maintenanceSyncedAt=Date.now();
   }
   await env.STATUS_STORE.put('state',JSON.stringify(next));

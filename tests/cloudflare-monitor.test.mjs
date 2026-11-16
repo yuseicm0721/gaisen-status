@@ -7,7 +7,7 @@ import worker,{scheduledCheck} from '../src/worker.js';
 const seed=JSON.parse(readFileSync(new URL('../history/cloudflare-seed.json',import.meta.url)));
 const T=Date.parse('2026-11-16T00:00:00Z');
 const result=(minutes,status='up',code=200)=>({checkedAt:new Date(T+minutes*60000).toISOString(),status,code,responseTime:100});
-const empty=()=>({schemaVersion:1,generatedAt:new Date(T).toISOString(),service:{name:'ガイセンNOW',slug:'gaisen-now'},latest:result(0),intervals:[],days:{},incidents:[],historicalImport:null,activeIncident:null,maintenanceSyncedAt:Date.now()});
+const empty=()=>({schemaVersion:1,generatedAt:new Date(T).toISOString(),service:{name:'ガイセンNOW',slug:'gaisen-now'},latest:result(0),intervals:[],days:{},incidents:[],historicalImport:null,activeIncident:null,maintenanceSyncedAt:Date.now(),maintenanceSourceUpdatedAt:new Date().toISOString()});
 
 test('stored history retains all imported notices and original rolling statistics',()=>{
  const original=JSON.parse(readFileSync(new URL('../status-data.json',import.meta.url)));

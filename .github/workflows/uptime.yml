@@ -1,21 +1,27 @@
-name: 監視履歴をGitHubに保存
+name: 監視履歴とお知らせを保存
 on:
   schedule:
     - cron: '23 * * * *'
   workflow_dispatch:
+  issues:
+    types: [opened, edited, deleted, closed, reopened, labeled, unlabeled, transferred]
   push:
     branches: [main]
     paths:
       - .github/workflows/uptime.yml
       - scripts/archive-cloudflare.mjs
+      - scripts/export-maintenance.mjs
+      - src/worker.js
       - src/monitor-state.js
 permissions:
   contents: write
+  issues: read
 concurrency:
   group: gaisen-uptime
   cancel-in-progress: false
 jobs:
   archive:
+    if: github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'maintenance') || github.event.label.name == 'maintenance'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -23,13 +29,22 @@ jobs:
         with:
           ref: main
           fetch-depth: 1
+      - name: メンテナンスのお知らせを取得
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/export-maintenance.mjs
       - name: 保存済みの監視履歴を取得
+        id: history
+        continue-on-error: true
         run: node scripts/archive-cloudflare.mjs
-      - name: 履歴をGitHubに保存
+      - name: 履歴とお知らせをGitHubに保存
         run: |
           git config user.name 'Gaisen NOW Status'
           git config user.email '73812536+upptime-bot@users.noreply.github.com'
-          git add history/cloudflare-state.json status-data.json
+          git add history/cloudflare-state.json status-data.json maintenance.json
           git diff --cached --quiet && exit 0
           git commit -m 'Archive autonomous monitoring history [skip ci]'
           git push
+      - name: 履歴取得の失敗を報告
+        if: steps.history.outcome == 'failure'
+        run: exit 1

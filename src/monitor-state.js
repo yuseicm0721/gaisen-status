@@ -68,5 +68,7 @@ export function publicData(state, now=Date.now()) {
     }
   }
   const service={...state.service,...state.latest,periods:periods.map(p=>({days:p.days,uptime:p.total?+(p.up/p.total*100).toFixed(3):null,observedSeconds:Math.round(p.total/1000)})),days:[...days.values()].sort((a,b)=>a.date.localeCompare(b.date))};
-  return {version:1,sourceMonitoring:'cloudflare',generatedAt:state.generatedAt,intervalMinutes:5,service,services:[service],incidents:state.incidents,incidentsAvailable:state.maintenanceAvailable!==false,historicalImport:state.historicalImport};
+  const sourceTime=Date.parse(state.maintenanceSourceUpdatedAt);
+  const maintenanceFresh=!state.maintenanceSourceUpdatedAt || (Number.isFinite(sourceTime) && sourceTime<=now+300000 && now-sourceTime<=6*3600000);
+  return {version:1,sourceMonitoring:'cloudflare',generatedAt:state.generatedAt,intervalMinutes:5,service,services:[service],incidents:state.incidents,incidentsAvailable:state.maintenanceAvailable!==false && maintenanceFresh,historicalImport:state.historicalImport};
 }
