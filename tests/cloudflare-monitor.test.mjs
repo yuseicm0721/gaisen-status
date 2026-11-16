@@ -18,7 +18,10 @@ test('stored history retains all imported notices and original rolling statistic
  const checks=JSON.parse(readFileSync(new URL('../history/checks.json',import.meta.url)))['gaisen-now'].filter(c=>c[0]<=Date.parse(seed.latest.checkedAt));
  const expected=summarize(checks,Date.parse(seed.generatedAt),archive);
  assert.deepEqual(reconstructed.service.periods,expected.periods);
- assert.deepEqual(reconstructed.service.days.map(d=>[d.date,d.observedSeconds,d.upSeconds,d.failed]),expected.days.map(d=>[d.date,d.observedSeconds,d.upSeconds,d.failed]));
+ // Observations have millisecond resolution; compare integer milliseconds to
+ // avoid floating-point addition order changing the last fractional bit.
+ const milliseconds=days=>days.map(d=>[d.date,Math.round(d.observedSeconds*1000),Math.round(d.upSeconds*1000),d.failed]);
+ assert.deepEqual(milliseconds(reconstructed.service.days),milliseconds(expected.days));
  assert.ok(reconstructed.service.days.some(d=>d.date==='2026-08-18'));
  assert.equal(reconstructed.incidents.length,27);
  assert.equal(reconstructed.service.name,original.service.name);
