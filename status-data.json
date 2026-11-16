@@ -1,31 +1,33 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-16T00:00:49.378Z",
+  "generatedAt": "2026-11-16T00:02:11.571Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
     "name": "ガイセンNOW",
-    "description": "街宣情報・ニュースの閲覧",
+    "description": "街宣情報・ニュースを提供するガイセンNOW",
+    "url": "https://gaisen.1mr.jp/",
     "status": "up",
-    "checkedAt": "2026-11-16T00:00:47.480Z",
-    "responseTime": 1670,
-    "startedAt": "2026-11-15T13:43:25.242Z",
+    "code": 200,
+    "responseTime": 1779,
+    "checkedAt": "2026-11-16T00:02:10.206Z",
+    "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
       {
         "days": 1,
-        "uptime": 99.434,
-        "observedSeconds": 86397
+        "uptime": 99.437,
+        "observedSeconds": 86399
       },
       {
         "days": 7,
-        "uptime": 99.919,
-        "observedSeconds": 604797
+        "uptime": 99.92,
+        "observedSeconds": 604799
       },
       {
         "days": 30,
         "uptime": 98.449,
-        "observedSeconds": 2591997
+        "observedSeconds": 2591999
       }
     ],
     "days": [
@@ -921,55 +923,54 @@
       },
       {
         "date": "2026-11-15",
-        "checks": null,
+        "checks": 11,
         "failed": 0,
-        "upSeconds": 86399.184,
-        "observedSeconds": 86399.184,
+        "upSeconds": 86400,
+        "observedSeconds": 86400,
         "sources": [
-          "uptimerobot",
-          "upptime"
+          "upptime",
+          "uptimerobot"
         ]
       },
       {
         "date": "2026-11-16",
-        "checks": null,
-        "failed": 3,
-        "upSeconds": 31958.325999999997,
-        "observedSeconds": 32447.479999999992,
+        "checks": 65,
+        "failed": 1,
+        "upSeconds": 32044.139,
+        "observedSeconds": 32530.206,
         "sources": [
           "upptime"
-        ],
-        "partialSeconds": 17.454
+        ]
       }
     ]
   },
   "services": [
     {
-      "slug": "website",
-      "name": "ウェブサイト",
-      "description": "街宣情報の閲覧",
+      "slug": "gaisen-now",
+      "name": "ガイセンNOW",
+      "description": "街宣情報・ニュースを提供するガイセンNOW",
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1670,
-      "checkedAt": "2026-11-16T00:00:47.480Z",
+      "responseTime": 1779,
+      "checkedAt": "2026-11-16T00:02:10.206Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
           "uptime": 99.437,
-          "observedSeconds": 86398
+          "observedSeconds": 86399
         },
         {
           "days": 7,
           "uptime": 99.92,
-          "observedSeconds": 604798
+          "observedSeconds": 604799
         },
         {
           "days": 30,
           "uptime": 98.449,
-          "observedSeconds": 2591998
+          "observedSeconds": 2591999
         }
       ],
       "days": [
@@ -1876,61 +1877,10 @@
         },
         {
           "date": "2026-11-16",
-          "checks": 64,
+          "checks": 65,
           "failed": 1,
-          "upSeconds": 31961.413,
-          "observedSeconds": 32447.48,
-          "sources": [
-            "upptime"
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "news",
-      "name": "ニュース",
-      "description": "ニュースの閲覧",
-      "url": "https://gaisen.1mr.jp/news",
-      "status": "up",
-      "code": 200,
-      "responseTime": 388,
-      "checkedAt": "2026-11-16T00:00:47.917Z",
-      "startedAt": "2026-11-15T13:43:25.242Z",
-      "historyStartedAt": "2026-11-15T13:43:25.242Z",
-      "periods": [
-        {
-          "days": 1,
-          "uptime": 98.718,
-          "observedSeconds": 37042
-        },
-        {
-          "days": 7,
-          "uptime": 98.718,
-          "observedSeconds": 37042
-        },
-        {
-          "days": 30,
-          "uptime": 98.718,
-          "observedSeconds": 37042
-        }
-      ],
-      "days": [
-        {
-          "date": "2026-11-15",
-          "checks": 11,
-          "failed": 0,
-          "upSeconds": 4594.207000000001,
-          "observedSeconds": 4594.207000000001,
-          "sources": [
-            "upptime"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "checks": 64,
-          "failed": 1,
-          "upSeconds": 31973.13,
-          "observedSeconds": 32447.916999999998,
+          "upSeconds": 32044.139,
+          "observedSeconds": 32530.206,
           "sources": [
             "upptime"
           ]
@@ -1942,19 +1892,24 @@
     {
       "id": 1,
       "type": "incident",
-      "services": [],
+      "source": "upptime",
+      "services": [
+        "ガイセンNOW"
+      ],
       "title": null,
       "state": "closed",
       "startedAt": "2026-11-15T19:31:04Z",
       "resolvedAt": "2026-11-15T19:39:11Z",
-      "url": "https://github.com/yuseicm0721/gaisen-status/issues/1"
+      "url": "https://github.com/yuseicm0721/gaisen-status/issues/1",
+      "code": 530,
+      "status": "down"
     },
     {
       "id": "uptimerobot-800442063-1794166285",
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-11-08T19:31:25.000Z",
@@ -1967,7 +1922,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-11-07T23:00:47.000Z",
@@ -1980,7 +1935,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-11-04T23:00:48.000Z",
@@ -1993,7 +1948,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-10-24T08:07:29.000Z",
@@ -2006,7 +1961,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-10-22T00:50:05.000Z",
@@ -2019,7 +1974,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-10-21T14:17:45.000Z",
@@ -2032,7 +1987,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-10-19T23:01:49.000Z",
@@ -2045,7 +2000,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-10-11T23:00:50.000Z",
@@ -2058,7 +2013,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-10-11T19:31:21.000Z",
@@ -2071,7 +2026,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-10-01T23:00:57.000Z",
@@ -2084,7 +2039,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-27T19:31:23.000Z",
@@ -2097,7 +2052,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-16T04:49:40.000Z",
@@ -2110,7 +2065,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-11T04:13:41.000Z",
@@ -2123,7 +2078,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-10T23:01:02.000Z",
@@ -2136,7 +2091,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-06T07:58:35.000Z",
@@ -2149,7 +2104,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-06T03:46:13.000Z",
@@ -2162,7 +2117,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-05T23:02:22.000Z",
@@ -2175,7 +2130,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-05T16:04:04.000Z",
@@ -2188,7 +2143,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-04T20:31:38.000Z",
@@ -2201,7 +2156,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-09-04T01:41:33.000Z",
@@ -2214,7 +2169,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-08-30T19:30:59.000Z",
@@ -2227,7 +2182,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-08-25T21:16:55.000Z",
@@ -2240,7 +2195,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-08-18T08:13:01.000Z",
@@ -2253,7 +2208,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-08-10T23:00:57.000Z",
@@ -2266,7 +2221,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-08-09T19:31:08.000Z",
@@ -2279,7 +2234,7 @@
       "source": "uptimerobot",
       "type": "incident",
       "services": [
-        "ウェブサイト"
+        "ガイセンNOW"
       ],
       "state": "closed",
       "startedAt": "2026-08-09T12:18:02.000Z",
