@@ -1,8 +1,11 @@
 {
   "name": "gaisen-status",
   "main": "src/worker.js",
+  "account_id": "58130daac0dd442b33ccee79959b5356",
   "compatibility_date": "2026-11-15",
   "workers_dev": true,
   "routes": [{"pattern": "gaisen.1mr.jp/status*", "zone_name": "1mr.jp"}],
-  "observability": {"enabled": false}
+  "kv_namespaces": [{"binding": "STATUS_STORE", "id": "9789aa7510904333acf93238784189d0"}],
+  "triggers": {"crons": ["*/5 * * * *"]},
+  "observability": {"enabled": true}
 }

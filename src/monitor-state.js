@@ -47,7 +47,7 @@ export function recordResult(state, result) {
 
 export function publicData(state, now=Date.now()) {
   if (state.schemaVersion!==1 || !state.latest || !Array.isArray(state.intervals)) throw new Error('Invalid stored monitoring state');
-  const days=new Map(Object.entries(state.days).map(([date,counts])=>[date,{date,checks:counts.checks,failed:counts.failed,upSeconds:0,observedSeconds:0,sources:[]} ]));
+  const days=new Map(Object.entries(state.days).map(([date,counts])=>[date,{date,checks:counts.checks,failed:counts.failed,upSeconds:0,observedSeconds:0,partialSeconds:0,sources:[]} ]));
   const periods=[1,7,30].map(days=>({days,up:0,total:0}));
   for (const [start,rawEnd,status,source] of state.intervals) {
     const end=Math.min(rawEnd,now);
@@ -58,7 +58,7 @@ export function publicData(state, now=Date.now()) {
     }
     for(let cursor=start;cursor<end;) {
       const date=dayOf(cursor),stop=Math.min(end,Date.parse(date+'T00:00:00+09:00')+DAY);
-      const d=days.get(date) || {date,checks:null,failed:0,upSeconds:0,observedSeconds:0,sources:[]};
+      const d=days.get(date) || {date,checks:null,failed:0,upSeconds:0,observedSeconds:0,partialSeconds:0,sources:[]};
       const seconds=(stop-cursor)/1000;d.observedSeconds+=seconds;
       if(status==='up')d.upSeconds+=seconds;
       if(status==='degraded')d.partialSeconds=(d.partialSeconds || 0)+seconds;

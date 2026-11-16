@@ -58,10 +58,15 @@ export async function scheduledCheck(env) {
   if (!env.STATUS_STORE) throw new Error('Monitoring storage is not configured');
   let state=await storedState(env);
   if (!state) {
-    const response=await fetch('https://raw.githubusercontent.com/yuseicm0721/gaisen-status/main/history/cloudflare-seed.json', {redirect:'manual',signal:AbortSignal.timeout(5000),cf:{cacheTtl:0}});
-    if(!response.ok)throw new Error('Historical seed unavailable');
-    state=await response.json();
-    if(state.schemaVersion!==1)throw new Error('Invalid historical seed');
+    for(const filename of ['cloudflare-state.json','cloudflare-seed.json']) {
+      try {
+        const response=await fetch('https://raw.githubusercontent.com/yuseicm0721/gaisen-status/main/history/'+filename, {redirect:'manual',signal:AbortSignal.timeout(5000),cf:{cacheTtl:0}});
+        if(!response.ok)continue;
+        const saved=await response.json();
+        if(saved.schemaVersion===1 && Array.isArray(saved.intervals) && saved.latest) {state=saved;break;}
+      } catch { /* Try the preserved initial seed if a newer archive is unavailable. */ }
+    }
+    if(!state)throw new Error('Historical monitoring state unavailable');
   }
   let result=await checkConnection();
   for(let attempt=1;result.status!=='up' && attempt<3;attempt++)result=await checkConnection();
