@@ -24,6 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
+          # A queued run must start from the latest saved measurements.
+          ref: main
           fetch-depth: 1
       - name: 既存の履歴を単一監視へ引き継ぐ
         run: node scripts/migrate-single-monitor.mjs
