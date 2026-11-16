@@ -105,7 +105,7 @@ function renderIncidents(data) {
   const root = $('#incidents');
   const notices = [];
   if (!data.incidentsAvailable) {
-    notices.push(element('p', 'notice', '最新のお知らせを取得できていません。保存済みの過去の記録を表示しています。'));
+    notices.push(element('p', 'notice', 'お知らせの一部を更新できていません。取得済みの記録を表示しています。'));
   }
   if (!data.incidents.length) {
     if (notices.length) { root.replaceChildren(...notices); return; }
