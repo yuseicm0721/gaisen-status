@@ -9,6 +9,7 @@ on:
       - .upptimerc.yml
       - .github/workflows/uptime.yml
       - scripts/**
+      - docs/status-errors.js
 permissions:
   contents: write
   issues: write
@@ -23,7 +24,9 @@ jobs:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           fetch-depth: 1
-      - name: Upptimeで接続と本文を確認
+      - name: 既存の履歴を単一監視へ引き継ぐ
+        run: node scripts/migrate-single-monitor.mjs
+      - name: ガイセンNOWの接続と本文を確認
         uses: upptime/uptime-monitor@74f0683383384927e064d76a5f21f340d6af36fc # v1.46.5
         with:
           command: response-time
@@ -38,7 +41,7 @@ jobs:
         run: |
           git config user.name 'Upptime Bot'
           git config user.email '73812536+upptime-bot@users.noreply.github.com'
-          git add history/checks.json status-data.json
+          git add -A history status-data.json
           git diff --cached --quiet && exit 0
           git commit -m 'Update public status data [skip ci]'
           git push

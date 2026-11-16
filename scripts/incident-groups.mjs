@@ -1,5 +1,5 @@
-// The monitors keep independent GitHub issues. The public service has one
-// notification for each continuous, overlapping outage episode.
+import {normalizeCode} from '../docs/status-errors.js';
+// Retain one notification if legacy outage records overlap.
 function interval(incident) {
   if (incident.type !== 'incident' || incident.source === 'uptimerobot' || !incident.services?.length) return null;
   const start = Date.parse(incident.startedAt);
@@ -32,8 +32,9 @@ export function groupPublicIncidents(incidents) {
       ...items[0], id: 'upptime-group-' + ids.join('-'), source: 'upptime',
       services: [...new Set(items.flatMap(item => item.services))],
       state: open ? 'open' : 'closed',
+      codes: [...new Set(items.flatMap(item => item.codes || [item.code]).map(normalizeCode).filter(code => code !== null))],
       resolvedAt: open ? null : new Date(end).toISOString(),
-      records: items.map(item => ({id: item.id, services: item.services, state: item.state, startedAt: item.startedAt, resolvedAt: item.resolvedAt, url: item.url})),
+      records: items.map(item => ({id: item.id, state: item.state, startedAt: item.startedAt, resolvedAt: item.resolvedAt, url: item.url, code: normalizeCode(item.code)})),
     };
   });
   return [...separate, ...notifications].sort((a, b) => (Date.parse(b.startedAt) || 0) - (Date.parse(a.startedAt) || 0));

@@ -1,14 +1,9 @@
 owner: yuseicm0721
 repo: gaisen-status
 sites:
-  - name: ウェブサイト
-    slug: website
+  - name: ガイセンNOW
+    slug: gaisen-now
     url: https://gaisen.1mr.jp/
-    expectedStatusCodes: [200]
-    __dangerous__body_down_if_text_missing: ガイセンNOW
-  - name: ニュース
-    slug: news
-    url: https://gaisen.1mr.jp/news
     expectedStatusCodes: [200]
     __dangerous__body_down_if_text_missing: ガイセンNOW
 assignees: []

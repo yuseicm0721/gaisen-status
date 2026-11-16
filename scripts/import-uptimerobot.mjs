@@ -19,7 +19,7 @@ export function importSnapshot(snapshot, {cutover, fetchedAt}) {
       if (!down || event.time <= down.time) throw new Error('Unpaired recovery event');
       incidents.push({
         id: 'uptimerobot-800442063-' + down.time,
-        source: 'uptimerobot', type: 'incident', services: ['ウェブサイト'], state: 'closed',
+        source: 'uptimerobot', type: 'incident', services: ['ガイセンNOW'], state: 'closed',
         startedAt: new Date(down.time * 1000).toISOString(), resolvedAt: new Date(event.time * 1000).toISOString(),
         durationSeconds: event.time - down.time, code: String(down.reason?.code ?? ''),
       });
@@ -62,7 +62,7 @@ if (process.argv[1]?.endsWith('/import-uptimerobot.mjs')) {
   const raw = await readFile(path);
   const snapshot = JSON.parse(raw);
   const ledger = JSON.parse(await readFile('history/checks.json', 'utf8'));
-  const cutover = new Date(Math.min(...ledger.website.map(sample => sample[0]))).toISOString();
+  const cutover = new Date(Math.min(...(ledger['gaisen-now'] || ledger.website).map(sample => sample[0]))).toISOString();
   const fetchedAt = (await stat(path)).mtime.toISOString();
   const archive = importSnapshot(snapshot, {cutover, fetchedAt});
   archive.sourceSha256 = createHash('sha256').update(raw).digest('hex');
