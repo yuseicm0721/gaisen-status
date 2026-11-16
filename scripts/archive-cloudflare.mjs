@@ -1,0 +1,11 @@
+import {writeFile} from 'node:fs/promises';
+import {publicData} from '../src/monitor-state.js';
+const response=await fetch('https://gaisen.1mr.jp/status/history.json',{signal:AbortSignal.timeout(20000)});
+if(!response.ok)throw new Error('Monitoring backup HTTP '+response.status);
+const state=await response.json();
+const checked=Date.parse(state.latest?.checkedAt);
+if(state.schemaVersion!==1 || !Number.isFinite(checked) || checked>Date.now()+300000 || Date.now()-checked>20*60000)throw new Error('Monitoring backup is invalid or stale');
+const data=publicData(state,Date.parse(state.generatedAt));
+await writeFile('history/cloudflare-state.json',JSON.stringify(state)+'\n');
+await writeFile('status-data.json',JSON.stringify(data,null,2)+'\n');
+console.log('Archived autonomous monitoring at '+state.latest.checkedAt);

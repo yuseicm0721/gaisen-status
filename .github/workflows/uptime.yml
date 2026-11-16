@@ -1,50 +1,35 @@
-name: ガイセンNOW 稼働監視
+name: 監視履歴をGitHubに保存
 on:
   schedule:
-    # Offset from the busy start of each hour. Updating this also re-registers the schedule.
-    - cron: '3-58/5 * * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - .upptimerc.yml
       - .github/workflows/uptime.yml
-      - scripts/**
-      - docs/status-errors.js
+      - scripts/archive-cloudflare.mjs
+      - src/monitor-state.js
 permissions:
   contents: write
-  issues: write
 concurrency:
   group: gaisen-uptime
   cancel-in-progress: false
 jobs:
-  monitor:
+  archive:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          # A queued run must start from the latest saved measurements.
           ref: main
           fetch-depth: 1
-      - name: 既存の履歴を単一監視へ引き継ぐ
-        run: node scripts/migrate-single-monitor.mjs
-      - name: ガイセンNOWの接続と本文を確認
-        uses: upptime/uptime-monitor@74f0683383384927e064d76a5f21f340d6af36fc # v1.46.5
-        with:
-          command: response-time
-        env:
-          GH_PAT: ${{ github.token }}
-          SECRETS_CONTEXT: '{}'
-      - name: 公開用の履歴を集計
-        run: node scripts/export-status.mjs
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-      - name: 監視結果を保存
+      - name: 保存済みの監視履歴を取得
+        run: node scripts/archive-cloudflare.mjs
+      - name: 履歴をGitHubに保存
         run: |
-          git config user.name 'Upptime Bot'
+          git config user.name 'Gaisen NOW Status'
           git config user.email '73812536+upptime-bot@users.noreply.github.com'
-          git add -A history status-data.json
+          git add history/cloudflare-state.json status-data.json
           git diff --cached --quiet && exit 0
-          git commit -m 'Update public status data [skip ci]'
+          git commit -m 'Archive autonomous monitoring history [skip ci]'
           git push
