@@ -9,7 +9,7 @@
 - Cloudflare Workers の Cron Trigger で約5分ごとにトップページ https://gaisen.1mr.jp/ を確認します．HTTP 200 と本文の「ガイセンNOW」を確認し，失敗時は最大3回試行します．
 - 実測した接続状態，応答番号・時間，障害の発生と復旧，観測済みの時間区間を Workers KV に保存します．閲覧されていない間も実行・保存します．
 - `/status/data.json` は保存済みの記録から公開用の状態・稼働率・履歴を返します．GitHub Actions の定期実行を画面更新の前提にしません．
-- GitHub Actions は履歴のバックアップ専用です．約1時間ごと，または手動実行で `/status/history.json` を取得し，`history/cloudflare-state.json` と `status-data.json` を保存します．この処理の遅延は公開画面の監視・履歴更新に影響しません．
+- GitHub Actions は履歴のバックアップ専用です．約1時間ごと，または手動実行で 監視側の公開URL `https://gaisen-status.1mr.workers.dev/status/history.json` を取得し，`history/cloudflare-state.json` と `status-data.json` を保存します．この処理の遅延は公開画面の監視・履歴更新に影響しません．
 - GitHub の `maintenance` ラベル付き Issue は，監視処理が約1時間ごとに取得します．新しい障害のお知らせは定期監視が直接作成・更新します．
 - GitHub Pages は `docs` を画面変更時だけ配信します．Cloudflare Worker が画面・ロゴ・フォントを取得し，本体を経由せず `/status` を配信します．
 - ロゴ，LINE Seed JP，配色，ヘッダー・フッターは本体と統一しています．ニュースページの個別監視は行いません．

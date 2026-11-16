@@ -1,6 +1,6 @@
 import {writeFile} from 'node:fs/promises';
 import {publicData} from '../src/monitor-state.js';
-const response=await fetch('https://gaisen.1mr.jp/status/history.json',{signal:AbortSignal.timeout(20000)});
+const response=await fetch('https://gaisen-status.1mr.workers.dev/status/history.json',{headers:{Accept:'application/json','User-Agent':'GaisenNOW-Archive/1.0'},signal:AbortSignal.timeout(20000)});
 if(!response.ok)throw new Error('Monitoring backup HTTP '+response.status);
 const state=await response.json();
 const checked=Date.parse(state.latest?.checkedAt);
