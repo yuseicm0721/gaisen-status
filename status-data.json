@@ -1,7 +1,7 @@
 {
   "version": 1,
   "sourceMonitoring": "cloudflare",
-  "generatedAt": "2026-11-16T09:35:50.323Z",
+  "generatedAt": "2026-11-16T10:30:49.855Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
@@ -10,8 +10,8 @@
     "url": "https://gaisen.1mr.jp/",
     "status": "up",
     "code": 200,
-    "responseTime": 1987,
-    "checkedAt": "2026-11-16T09:35:50.323Z",
+    "responseTime": 1560,
+    "checkedAt": "2026-11-16T10:30:49.855Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
@@ -1025,10 +1025,10 @@
       },
       {
         "date": "2026-11-16",
-        "checks": 154,
+        "checks": 165,
         "failed": 1,
-        "upSeconds": 58046.587,
-        "observedSeconds": 58532.65400000001,
+        "upSeconds": 61346.11899999999,
+        "observedSeconds": 61832.186,
         "partialSeconds": 0,
         "sources": [
           "upptime",
@@ -1045,8 +1045,8 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1987,
-      "checkedAt": "2026-11-16T09:35:50.323Z",
+      "responseTime": 1560,
+      "checkedAt": "2026-11-16T10:30:49.855Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
@@ -2060,10 +2060,10 @@
         },
         {
           "date": "2026-11-16",
-          "checks": 154,
+          "checks": 165,
           "failed": 1,
-          "upSeconds": 58046.587,
-          "observedSeconds": 58532.65400000001,
+          "upSeconds": 61346.11899999999,
+          "observedSeconds": 61832.186,
           "partialSeconds": 0,
           "sources": [
             "upptime",
