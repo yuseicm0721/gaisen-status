@@ -1,7 +1,7 @@
 {
   "version": 1,
   "sourceMonitoring": "cloudflare",
-  "generatedAt": "2026-11-16T14:45:49.798Z",
+  "generatedAt": "2026-11-16T15:30:50.727Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
@@ -10,8 +10,8 @@
     "url": "https://gaisen.1mr.jp/",
     "status": "up",
     "code": 200,
-    "responseTime": 1444,
-    "checkedAt": "2026-11-16T14:45:49.798Z",
+    "responseTime": 1996,
+    "checkedAt": "2026-11-16T15:30:50.727Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
@@ -1025,13 +1025,24 @@
       },
       {
         "date": "2026-11-16",
-        "checks": 216,
+        "checks": 218,
         "failed": 1,
-        "upSeconds": 76646.062,
-        "observedSeconds": 77132.12900000002,
+        "upSeconds": 77496.264,
+        "observedSeconds": 77982.331,
         "partialSeconds": 0,
         "sources": [
           "upptime",
+          "cloudflare"
+        ]
+      },
+      {
+        "date": "2026-11-17",
+        "checks": 7,
+        "failed": 0,
+        "upSeconds": 1850.727,
+        "observedSeconds": 1850.727,
+        "partialSeconds": 0,
+        "sources": [
           "cloudflare"
         ]
       }
@@ -1045,8 +1056,8 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1444,
-      "checkedAt": "2026-11-16T14:45:49.798Z",
+      "responseTime": 1996,
+      "checkedAt": "2026-11-16T15:30:50.727Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
@@ -2060,13 +2071,24 @@
         },
         {
           "date": "2026-11-16",
-          "checks": 216,
+          "checks": 218,
           "failed": 1,
-          "upSeconds": 76646.062,
-          "observedSeconds": 77132.12900000002,
+          "upSeconds": 77496.264,
+          "observedSeconds": 77982.331,
           "partialSeconds": 0,
           "sources": [
             "upptime",
+            "cloudflare"
+          ]
+        },
+        {
+          "date": "2026-11-17",
+          "checks": 7,
+          "failed": 0,
+          "upSeconds": 1850.727,
+          "observedSeconds": 1850.727,
+          "partialSeconds": 0,
+          "sources": [
             "cloudflare"
           ]
         }
@@ -2428,7 +2450,7 @@
       "code": "530"
     }
   ],
-  "incidentsAvailable": false,
+  "incidentsAvailable": true,
   "historicalImport": {
     "source": "uptimerobot",
     "coverage": {
