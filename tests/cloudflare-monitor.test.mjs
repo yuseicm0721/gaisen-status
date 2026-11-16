@@ -93,3 +93,9 @@ test('the public data endpoint uses persistent monitoring rather than GitHub or 
   assert.equal(response.status,200);const d=await response.json();assert.equal(d.sourceMonitoring,'cloudflare');assert.equal(d.liveVerification,undefined);assert.equal(d.service.checkedAt,state.latest.checkedAt);
  }finally{globalThis.fetch=original;globalThis.caches=cache;}
 });
+
+test('public history cannot be changed through an HTTP request',async()=>{
+ let touched=false;
+ const response=await worker.fetch(new Request('https://gaisen.1mr.jp/status/history.json',{method:'POST',body:'{}'}),{STATUS_STORE:{put:async()=>{touched=true;}}},{waitUntil:()=>{}});
+ assert.equal(response.status,405);assert.equal(touched,false);
+});
