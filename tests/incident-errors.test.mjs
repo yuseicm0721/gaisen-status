@@ -41,3 +41,9 @@ test('maintenance notes do not become error notifications', () => {
   assert.equal(record.title,'メンテナンスのお知らせ');
   assert.equal('code' in record,false);
 });
+
+test('legacy internal error numbers remain visible without being labelled HTTP', () => {
+  assert.equal(resultDescription('333333',undefined,'uptimerobot'),'監視エラー 333333（UptimeRobotの記録）');
+  assert.equal(resultDescription('530',undefined,'uptimerobot'),'HTTP 530');
+  assert.equal(resultDescription('333333','down'),'エラー番号の記録なし');
+});

@@ -125,7 +125,7 @@ function renderIncidents(data) {
     card.append(top, times);
     if (!maintenance) {
       const codes = item.codes?.length ? item.codes : [item.code];
-      const details = [...new Set(codes.map(code => resultDescription(code, item.status)))];
+      const details = [...new Set(codes.map(code => resultDescription(code, item.status, item.source)))];
       card.append(element('p', 'incident-error', '検知時の応答：' + details.join(' ／ ')));
     }
     if (item.source === 'uptimerobot') card.append(element('p', 'incident-source', 'UptimeRobotの過去の記録'));

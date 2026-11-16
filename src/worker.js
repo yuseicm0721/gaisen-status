@@ -32,7 +32,7 @@ export default {
     const url = new URL(request.url), resource = resourceFor(url.pathname);
     if (!resource) return new Response('Not found', {status: 404});
     const target = resource.data ? DATA_ORIGIN : STATIC_ORIGIN + resource.path;
-    const cacheKey = new Request('https://gaisen.1mr.jp/status/__cache/20261116-1/' + (resource.data ? 'data.json' : resource.path));
+    const cacheKey = new Request('https://gaisen.1mr.jp/status/__cache/20261116-2/' + (resource.data ? 'data.json' : resource.path));
     const cache = caches.default;
     const cached = await cache.match(cacheKey);
     const age = cached ? Date.now() - Number(cached.headers.get('X-Status-Cached-At')) : Infinity;
