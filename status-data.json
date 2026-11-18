@@ -1,33 +1,33 @@
 {
   "version": 1,
   "sourceMonitoring": "cloudflare",
-  "generatedAt": "2026-11-18T22:25:50.557Z",
+  "generatedAt": "2026-11-18T23:26:03.322Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
     "name": "ガイセンNOW",
     "description": "街宣情報・ニュースを提供するガイセンNOW",
     "url": "https://gaisen.1mr.jp/",
-    "status": "up",
-    "code": 200,
-    "responseTime": 1924,
-    "checkedAt": "2026-11-18T22:25:50.557Z",
+    "status": "down",
+    "code": 0,
+    "responseTime": 5000,
+    "checkedAt": "2026-11-18T23:26:03.322Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
       {
         "days": 1,
-        "uptime": 98.971,
+        "uptime": 98.639,
         "observedSeconds": 86400
       },
       {
         "days": 7,
-        "uptime": 99.719,
+        "uptime": 99.62,
         "observedSeconds": 596382
       },
       {
         "days": 30,
-        "uptime": 98.398,
+        "uptime": 98.387,
         "observedSeconds": 2583582
       }
     ],
@@ -36,8 +36,8 @@
         "date": "2026-08-20",
         "checks": null,
         "failed": 0,
-        "upSeconds": 59649.443,
-        "observedSeconds": 59649.443,
+        "upSeconds": 56036.678,
+        "observedSeconds": 56036.678,
         "partialSeconds": 0,
         "sources": [
           "uptimerobot"
@@ -1037,10 +1037,10 @@
       },
       {
         "date": "2026-11-19",
-        "checks": 90,
-        "failed": 2,
-        "upSeconds": 26163.282,
-        "observedSeconds": 26750.557,
+        "checks": 102,
+        "failed": 5,
+        "upSeconds": 29187.493,
+        "observedSeconds": 30363.322,
         "partialSeconds": 0,
         "sources": [
           "cloudflare"
@@ -1054,26 +1054,26 @@
       "name": "ガイセンNOW",
       "description": "街宣情報・ニュースを提供するガイセンNOW",
       "url": "https://gaisen.1mr.jp/",
-      "status": "up",
-      "code": 200,
-      "responseTime": 1924,
-      "checkedAt": "2026-11-18T22:25:50.557Z",
+      "status": "down",
+      "code": 0,
+      "responseTime": 5000,
+      "checkedAt": "2026-11-18T23:26:03.322Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
-          "uptime": 98.971,
+          "uptime": 98.639,
           "observedSeconds": 86400
         },
         {
           "days": 7,
-          "uptime": 99.719,
+          "uptime": 99.62,
           "observedSeconds": 596382
         },
         {
           "days": 30,
-          "uptime": 98.398,
+          "uptime": 98.387,
           "observedSeconds": 2583582
         }
       ],
@@ -1082,8 +1082,8 @@
           "date": "2026-08-20",
           "checks": null,
           "failed": 0,
-          "upSeconds": 59649.443,
-          "observedSeconds": 59649.443,
+          "upSeconds": 56036.678,
+          "observedSeconds": 56036.678,
           "partialSeconds": 0,
           "sources": [
             "uptimerobot"
@@ -2083,10 +2083,10 @@
         },
         {
           "date": "2026-11-19",
-          "checks": 90,
-          "failed": 2,
-          "upSeconds": 26163.282,
-          "observedSeconds": 26750.557,
+          "checks": 102,
+          "failed": 5,
+          "upSeconds": 29187.493,
+          "observedSeconds": 30363.322,
           "partialSeconds": 0,
           "sources": [
             "cloudflare"
@@ -2096,6 +2096,57 @@
     }
   ],
   "incidents": [
+    {
+      "id": "cloudflare-1795044363322",
+      "source": "cloudflare",
+      "type": "incident",
+      "services": [
+        "ガイセンNOW"
+      ],
+      "title": null,
+      "state": "open",
+      "startedAt": "2026-11-18T23:26:03.322Z",
+      "resolvedAt": null,
+      "code": 0,
+      "codes": [
+        0
+      ],
+      "status": "down"
+    },
+    {
+      "id": "cloudflare-1795042848188",
+      "source": "cloudflare",
+      "type": "incident",
+      "services": [
+        "ガイセンNOW"
+      ],
+      "title": null,
+      "state": "closed",
+      "startedAt": "2026-11-18T23:00:48.188Z",
+      "resolvedAt": "2026-11-18T23:05:50.309Z",
+      "code": 530,
+      "codes": [
+        530
+      ],
+      "status": "down"
+    },
+    {
+      "id": "cloudflare-1795042263439",
+      "source": "cloudflare",
+      "type": "incident",
+      "services": [
+        "ガイセンNOW"
+      ],
+      "title": null,
+      "state": "closed",
+      "startedAt": "2026-11-18T22:51:03.439Z",
+      "resolvedAt": "2026-11-18T22:55:49.872Z",
+      "code": 0,
+      "codes": [
+        0
+      ],
+      "status": "down"
+    },
     {
       "id": "cloudflare-1795039862980",
       "source": "cloudflare",
