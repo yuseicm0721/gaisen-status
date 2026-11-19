@@ -1,7 +1,7 @@
 {
   "version": 1,
   "sourceMonitoring": "cloudflare",
-  "generatedAt": "2026-11-19T19:25:50.455Z",
+  "generatedAt": "2026-11-19T20:25:49.914Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
@@ -10,8 +10,8 @@
     "url": "https://gaisen.1mr.jp/",
     "status": "up",
     "code": 200,
-    "responseTime": 2317,
-    "checkedAt": "2026-11-19T19:25:50.455Z",
+    "responseTime": 1695,
+    "checkedAt": "2026-11-19T20:25:49.914Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
@@ -36,8 +36,8 @@
         "date": "2026-08-21",
         "checks": null,
         "failed": 0,
-        "upSeconds": 70449.545,
-        "observedSeconds": 70449.545,
+        "upSeconds": 66850.086,
+        "observedSeconds": 66850.086,
         "partialSeconds": 0,
         "sources": [
           "uptimerobot"
@@ -1037,10 +1037,10 @@
       },
       {
         "date": "2026-11-20",
-        "checks": 54,
+        "checks": 66,
         "failed": 0,
-        "upSeconds": 15950.455,
-        "observedSeconds": 15950.455,
+        "upSeconds": 19549.914,
+        "observedSeconds": 19549.914,
         "partialSeconds": 0,
         "sources": [
           "cloudflare"
@@ -1056,8 +1056,8 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 2317,
-      "checkedAt": "2026-11-19T19:25:50.455Z",
+      "responseTime": 1695,
+      "checkedAt": "2026-11-19T20:25:49.914Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
@@ -1082,8 +1082,8 @@
           "date": "2026-08-21",
           "checks": null,
           "failed": 0,
-          "upSeconds": 70449.545,
-          "observedSeconds": 70449.545,
+          "upSeconds": 66850.086,
+          "observedSeconds": 66850.086,
           "partialSeconds": 0,
           "sources": [
             "uptimerobot"
@@ -2083,10 +2083,10 @@
         },
         {
           "date": "2026-11-20",
-          "checks": 54,
+          "checks": 66,
           "failed": 0,
-          "upSeconds": 15950.455,
-          "observedSeconds": 15950.455,
+          "upSeconds": 19549.914,
+          "observedSeconds": 19549.914,
           "partialSeconds": 0,
           "sources": [
             "cloudflare"
