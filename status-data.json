@@ -1,33 +1,33 @@
 {
   "version": 1,
   "sourceMonitoring": "cloudflare",
-  "generatedAt": "2026-11-18T23:26:03.322Z",
+  "generatedAt": "2026-11-19T00:40:50.528Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
     "name": "ガイセンNOW",
     "description": "街宣情報・ニュースを提供するガイセンNOW",
     "url": "https://gaisen.1mr.jp/",
-    "status": "down",
-    "code": 0,
-    "responseTime": 5000,
-    "checkedAt": "2026-11-18T23:26:03.322Z",
+    "status": "up",
+    "code": 200,
+    "responseTime": 1938,
+    "checkedAt": "2026-11-19T00:40:50.528Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
       {
         "days": 1,
-        "uptime": 98.639,
+        "uptime": 98.307,
         "observedSeconds": 86400
       },
       {
         "days": 7,
-        "uptime": 99.62,
+        "uptime": 99.572,
         "observedSeconds": 596382
       },
       {
         "days": 30,
-        "uptime": 98.387,
+        "uptime": 98.376,
         "observedSeconds": 2583582
       }
     ],
@@ -36,8 +36,8 @@
         "date": "2026-08-20",
         "checks": null,
         "failed": 0,
-        "upSeconds": 56036.678,
-        "observedSeconds": 56036.678,
+        "upSeconds": 51549.472,
+        "observedSeconds": 51549.472,
         "partialSeconds": 0,
         "sources": [
           "uptimerobot"
@@ -1037,10 +1037,10 @@
       },
       {
         "date": "2026-11-19",
-        "checks": 102,
+        "checks": 117,
         "failed": 5,
-        "upSeconds": 29187.493,
-        "observedSeconds": 30363.322,
+        "upSeconds": 33388.106,
+        "observedSeconds": 34850.528,
         "partialSeconds": 0,
         "sources": [
           "cloudflare"
@@ -1054,26 +1054,26 @@
       "name": "ガイセンNOW",
       "description": "街宣情報・ニュースを提供するガイセンNOW",
       "url": "https://gaisen.1mr.jp/",
-      "status": "down",
-      "code": 0,
-      "responseTime": 5000,
-      "checkedAt": "2026-11-18T23:26:03.322Z",
+      "status": "up",
+      "code": 200,
+      "responseTime": 1938,
+      "checkedAt": "2026-11-19T00:40:50.528Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
-          "uptime": 98.639,
+          "uptime": 98.307,
           "observedSeconds": 86400
         },
         {
           "days": 7,
-          "uptime": 99.62,
+          "uptime": 99.572,
           "observedSeconds": 596382
         },
         {
           "days": 30,
-          "uptime": 98.387,
+          "uptime": 98.376,
           "observedSeconds": 2583582
         }
       ],
@@ -1082,8 +1082,8 @@
           "date": "2026-08-20",
           "checks": null,
           "failed": 0,
-          "upSeconds": 56036.678,
-          "observedSeconds": 56036.678,
+          "upSeconds": 51549.472,
+          "observedSeconds": 51549.472,
           "partialSeconds": 0,
           "sources": [
             "uptimerobot"
@@ -2083,10 +2083,10 @@
         },
         {
           "date": "2026-11-19",
-          "checks": 102,
+          "checks": 117,
           "failed": 5,
-          "upSeconds": 29187.493,
-          "observedSeconds": 30363.322,
+          "upSeconds": 33388.106,
+          "observedSeconds": 34850.528,
           "partialSeconds": 0,
           "sources": [
             "cloudflare"
@@ -2104,9 +2104,9 @@
         "ガイセンNOW"
       ],
       "title": null,
-      "state": "open",
+      "state": "closed",
       "startedAt": "2026-11-18T23:26:03.322Z",
-      "resolvedAt": null,
+      "resolvedAt": "2026-11-18T23:30:49.915Z",
       "code": 0,
       "codes": [
         0
