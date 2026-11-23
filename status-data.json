@@ -1,7 +1,7 @@
 {
   "version": 1,
   "sourceMonitoring": "cloudflare",
-  "generatedAt": "2026-11-22T23:25:50.089Z",
+  "generatedAt": "2026-11-23T00:45:49.906Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
@@ -10,8 +10,8 @@
     "url": "https://gaisen.1mr.jp/",
     "status": "up",
     "code": 200,
-    "responseTime": 2084,
-    "checkedAt": "2026-11-22T23:25:50.089Z",
+    "responseTime": 1888,
+    "checkedAt": "2026-11-23T00:45:49.906Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
@@ -22,8 +22,8 @@
       },
       {
         "days": 7,
-        "uptime": 98.708,
-        "observedSeconds": 596382
+        "uptime": 98.714,
+        "observedSeconds": 598893
       },
       {
         "days": 30,
@@ -36,8 +36,8 @@
         "date": "2026-08-24",
         "checks": null,
         "failed": 0,
-        "upSeconds": 56049.911,
-        "observedSeconds": 56049.911,
+        "upSeconds": 51250.094,
+        "observedSeconds": 51250.094,
         "partialSeconds": 0,
         "sources": [
           "uptimerobot"
@@ -1037,10 +1037,10 @@
       },
       {
         "date": "2026-11-23",
-        "checks": 102,
+        "checks": 118,
         "failed": 8,
-        "upSeconds": 27971.243000000002,
-        "observedSeconds": 30350.089,
+        "upSeconds": 32771.06,
+        "observedSeconds": 35149.906,
         "partialSeconds": 0,
         "sources": [
           "cloudflare"
@@ -1056,8 +1056,8 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 2084,
-      "checkedAt": "2026-11-22T23:25:50.089Z",
+      "responseTime": 1888,
+      "checkedAt": "2026-11-23T00:45:49.906Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
@@ -1068,8 +1068,8 @@
         },
         {
           "days": 7,
-          "uptime": 98.708,
-          "observedSeconds": 596382
+          "uptime": 98.714,
+          "observedSeconds": 598893
         },
         {
           "days": 30,
@@ -1082,8 +1082,8 @@
           "date": "2026-08-24",
           "checks": null,
           "failed": 0,
-          "upSeconds": 56049.911,
-          "observedSeconds": 56049.911,
+          "upSeconds": 51250.094,
+          "observedSeconds": 51250.094,
           "partialSeconds": 0,
           "sources": [
             "uptimerobot"
@@ -2083,10 +2083,10 @@
         },
         {
           "date": "2026-11-23",
-          "checks": 102,
+          "checks": 118,
           "failed": 8,
-          "upSeconds": 27971.243000000002,
-          "observedSeconds": 30350.089,
+          "upSeconds": 32771.06,
+          "observedSeconds": 35149.906,
           "partialSeconds": 0,
           "sources": [
             "cloudflare"
