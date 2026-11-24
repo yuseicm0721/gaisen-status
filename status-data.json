@@ -1,33 +1,33 @@
 {
   "version": 1,
   "sourceMonitoring": "cloudflare",
-  "generatedAt": "2026-11-24T19:26:03.451Z",
+  "generatedAt": "2026-11-24T20:25:50.023Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
     "name": "ガイセンNOW",
     "description": "街宣情報・ニュースを提供するガイセンNOW",
     "url": "https://gaisen.1mr.jp/",
-    "status": "down",
-    "code": 0,
-    "responseTime": 5000,
-    "checkedAt": "2026-11-24T19:26:03.451Z",
+    "status": "up",
+    "code": 200,
+    "responseTime": 1763,
+    "checkedAt": "2026-11-24T20:25:50.023Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
       {
         "days": 1,
-        "uptime": 98.296,
+        "uptime": 96.203,
         "observedSeconds": 86400
       },
       {
         "days": 7,
-        "uptime": 98.533,
+        "uptime": 98.04,
         "observedSeconds": 604800
       },
       {
         "days": 30,
-        "uptime": 99.591,
+        "uptime": 99.475,
         "observedSeconds": 2583582
       }
     ],
@@ -36,8 +36,8 @@
         "date": "2026-08-26",
         "checks": null,
         "failed": 1,
-        "upSeconds": 70131.549,
-        "observedSeconds": 70436.549,
+        "upSeconds": 66544.977,
+        "observedSeconds": 66849.977,
         "partialSeconds": 0,
         "sources": [
           "uptimerobot"
@@ -1037,10 +1037,10 @@
       },
       {
         "date": "2026-11-25",
-        "checks": 54,
-        "failed": 2,
-        "upSeconds": 15663.254,
-        "observedSeconds": 15963.451000000001,
+        "checks": 66,
+        "failed": 11,
+        "upSeconds": 16269.391000000001,
+        "observedSeconds": 19550.023000000005,
         "partialSeconds": 0,
         "sources": [
           "cloudflare"
@@ -1054,26 +1054,26 @@
       "name": "ガイセンNOW",
       "description": "街宣情報・ニュースを提供するガイセンNOW",
       "url": "https://gaisen.1mr.jp/",
-      "status": "down",
-      "code": 0,
-      "responseTime": 5000,
-      "checkedAt": "2026-11-24T19:26:03.451Z",
+      "status": "up",
+      "code": 200,
+      "responseTime": 1763,
+      "checkedAt": "2026-11-24T20:25:50.023Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
-          "uptime": 98.296,
+          "uptime": 96.203,
           "observedSeconds": 86400
         },
         {
           "days": 7,
-          "uptime": 98.533,
+          "uptime": 98.04,
           "observedSeconds": 604800
         },
         {
           "days": 30,
-          "uptime": 99.591,
+          "uptime": 99.475,
           "observedSeconds": 2583582
         }
       ],
@@ -1082,8 +1082,8 @@
           "date": "2026-08-26",
           "checks": null,
           "failed": 1,
-          "upSeconds": 70131.549,
-          "observedSeconds": 70436.549,
+          "upSeconds": 66544.977,
+          "observedSeconds": 66849.977,
           "partialSeconds": 0,
           "sources": [
             "uptimerobot"
@@ -2083,10 +2083,10 @@
         },
         {
           "date": "2026-11-25",
-          "checks": 54,
-          "failed": 2,
-          "upSeconds": 15663.254,
-          "observedSeconds": 15963.451000000001,
+          "checks": 66,
+          "failed": 11,
+          "upSeconds": 16269.391000000001,
+          "observedSeconds": 19550.023000000005,
           "partialSeconds": 0,
           "sources": [
             "cloudflare"
@@ -2097,6 +2097,23 @@
   ],
   "incidents": [
     {
+      "id": "cloudflare-1795550463811",
+      "source": "cloudflare",
+      "type": "incident",
+      "services": [
+        "ガイセンNOW"
+      ],
+      "title": null,
+      "state": "closed",
+      "startedAt": "2026-11-24T20:01:03.811Z",
+      "resolvedAt": "2026-11-24T20:20:50.122Z",
+      "code": 0,
+      "codes": [
+        0
+      ],
+      "status": "down"
+    },
+    {
       "id": "cloudflare-1795548063254",
       "source": "cloudflare",
       "type": "incident",
@@ -2104,9 +2121,9 @@
         "ガイセンNOW"
       ],
       "title": null,
-      "state": "open",
+      "state": "closed",
       "startedAt": "2026-11-24T19:21:03.254Z",
-      "resolvedAt": null,
+      "resolvedAt": "2026-11-24T19:55:57.575Z",
       "code": 0,
       "codes": [
         0
