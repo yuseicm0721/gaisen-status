@@ -1,7 +1,7 @@
 {
   "version": 1,
   "sourceMonitoring": "cloudflare",
-  "generatedAt": "2026-11-27T23:25:49.186Z",
+  "generatedAt": "2026-11-28T00:40:49.351Z",
   "intervalMinutes": 5,
   "service": {
     "slug": "gaisen-now",
@@ -10,14 +10,14 @@
     "url": "https://gaisen.1mr.jp/",
     "status": "up",
     "code": 200,
-    "responseTime": 1406,
-    "checkedAt": "2026-11-27T23:25:49.186Z",
+    "responseTime": 1660,
+    "checkedAt": "2026-11-28T00:40:49.351Z",
     "startedAt": "2026-11-15T13:43:23.304Z",
     "historyStartedAt": "2026-08-18T00:00:00.000Z",
     "periods": [
       {
         "days": 1,
-        "uptime": 96.905,
+        "uptime": 96.573,
         "observedSeconds": 86400
       },
       {
@@ -27,7 +27,7 @@
       },
       {
         "days": 30,
-        "uptime": 99.188,
+        "uptime": 99.177,
         "observedSeconds": 2583582
       }
     ],
@@ -36,8 +36,8 @@
         "date": "2026-08-29",
         "checks": null,
         "failed": 0,
-        "upSeconds": 56050.814,
-        "observedSeconds": 56050.814,
+        "upSeconds": 51550.649,
+        "observedSeconds": 51550.649,
         "partialSeconds": 0,
         "sources": [
           "uptimerobot"
@@ -1037,10 +1037,10 @@
       },
       {
         "date": "2026-11-28",
-        "checks": 102,
-        "failed": 9,
-        "upSeconds": 27675.377,
-        "observedSeconds": 30349.186,
+        "checks": 117,
+        "failed": 10,
+        "upSeconds": 31888.845,
+        "observedSeconds": 34849.351,
         "partialSeconds": 0,
         "sources": [
           "cloudflare"
@@ -1056,14 +1056,14 @@
       "url": "https://gaisen.1mr.jp/",
       "status": "up",
       "code": 200,
-      "responseTime": 1406,
-      "checkedAt": "2026-11-27T23:25:49.186Z",
+      "responseTime": 1660,
+      "checkedAt": "2026-11-28T00:40:49.351Z",
       "startedAt": "2026-11-15T13:43:23.304Z",
       "historyStartedAt": "2026-08-18T00:00:00.000Z",
       "periods": [
         {
           "days": 1,
-          "uptime": 96.905,
+          "uptime": 96.573,
           "observedSeconds": 86400
         },
         {
@@ -1073,7 +1073,7 @@
         },
         {
           "days": 30,
-          "uptime": 99.188,
+          "uptime": 99.177,
           "observedSeconds": 2583582
         }
       ],
@@ -1082,8 +1082,8 @@
           "date": "2026-08-29",
           "checks": null,
           "failed": 0,
-          "upSeconds": 56050.814,
-          "observedSeconds": 56050.814,
+          "upSeconds": 51550.649,
+          "observedSeconds": 51550.649,
           "partialSeconds": 0,
           "sources": [
             "uptimerobot"
@@ -2083,10 +2083,10 @@
         },
         {
           "date": "2026-11-28",
-          "checks": 102,
-          "failed": 9,
-          "upSeconds": 27675.377,
-          "observedSeconds": 30349.186,
+          "checks": 117,
+          "failed": 10,
+          "upSeconds": 31888.845,
+          "observedSeconds": 34849.351,
           "partialSeconds": 0,
           "sources": [
             "cloudflare"
@@ -2096,6 +2096,23 @@
     }
   ],
   "incidents": [
+    {
+      "id": "cloudflare-1795824362602",
+      "source": "cloudflare",
+      "type": "incident",
+      "services": [
+        "ガイセンNOW"
+      ],
+      "title": null,
+      "state": "closed",
+      "startedAt": "2026-11-28T00:06:02.602Z",
+      "resolvedAt": "2026-11-28T00:10:49.299Z",
+      "code": 0,
+      "codes": [
+        0
+      ],
+      "status": "down"
+    },
     {
       "id": "cloudflare-1795809962702",
       "source": "cloudflare",
